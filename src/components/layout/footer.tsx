@@ -21,9 +21,9 @@ export function Footer() {
           <div className="col-span-1 md:col-span-1 space-y-8">
             <Link href="/" className="flex items-center gap-3 group">
               <Camera className="w-8 h-8 text-primary group-hover:scale-110 transition-transform" />
-              <span className="font-headline text-3xl tracking-widest uppercase">
+              <div className="font-accent text-4xl whitespace-nowrap">
                 <span className="text-primary">Samar</span> <span className="text-white">Framer</span>
-              </span>
+              </div>
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed font-body italic">
               Capturing the soul of moments through a luxury cinematic lens. Based in India, serving globally with a focus on high-end weddings and fashion editorials.
@@ -60,6 +60,7 @@ export function Footer() {
             </ul>
           </div>
 
+          {/* The Galleries */}
           <div className="hidden md:block">
             <h4 className="font-headline uppercase tracking-[0.3em] text-primary text-sm mb-10 font-sans font-bold">The Galleries</h4>
             <ul className="space-y-5 text-xs uppercase tracking-widest text-muted-foreground font-bold font-sans">
@@ -71,6 +72,7 @@ export function Footer() {
             </ul>
           </div>
 
+          {/* Studio HQ */}
           <div className="hidden md:block">
             <h4 className="font-headline uppercase tracking-[0.3em] text-primary text-sm mb-10 font-sans font-bold">Studio HQ</h4>
             <ul className="space-y-6 text-sm text-muted-foreground font-body">

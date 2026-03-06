@@ -75,7 +75,7 @@ export function Navbar() {
         {/* Logo Section */}
         <Link href="/" className="flex items-center gap-2 group shrink-0" onClick={() => setIsMobileMenuOpen(false)}>
           <Camera className="w-5 h-5 sm:w-6 sm:h-6 text-primary group-hover:scale-110 transition-transform duration-500" />
-          <div className="font-headline text-xl sm:text-2xl tracking-widest uppercase whitespace-nowrap">
+          <div className="font-accent text-3xl sm:text-4xl whitespace-nowrap">
             <span className="text-primary">Samar</span> <span className="text-white">Framer</span>
           </div>
         </Link>
@@ -211,7 +211,7 @@ export function Navbar() {
               <div className="flex justify-between items-center mb-8 sm:mb-12">
                 <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-2">
                   <Camera className="w-7 h-7 text-primary" />
-                  <div className="font-headline text-2xl tracking-widest uppercase whitespace-nowrap">
+                  <div className="font-accent text-3xl sm:text-4xl whitespace-nowrap">
                     <span className="text-primary">Samar</span> <span className="text-white">Framer</span>
                   </div>
                 </Link>
