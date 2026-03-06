@@ -7,13 +7,13 @@ import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 export function PhotographerStory() {
-    const photographerImage = PlaceHolderImages.find(i => i.id === 'about-hero')?.imageUrl || "";
+    const photographerImage = PlaceHolderImages.find(i => i.id === 'photographer-portrait')?.imageUrl || "";
 
     return (
         <section className="py-24 bg-background relative overflow-hidden">
             <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
 
-                {/* Circular Portrait Image */}
+                {/* Capsule Portrait Image */}
                 <motion.div
                     initial={{ opacity: 0, x: -30 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -21,14 +21,14 @@ export function PhotographerStory() {
                     transition={{ duration: 0.8 }}
                     className="flex items-center justify-center"
                 >
-                    <div className="relative w-[320px] h-[320px] sm:w-[400px] sm:h-[400px] lg:w-[480px] lg:h-[480px] rounded-full overflow-hidden border-2 border-primary/30 shadow-2xl shadow-primary/10">
+                    <div className="relative w-[300px] sm:w-[350px] lg:w-[400px] h-[500px] sm:h-[600px] lg:h-[700px] rounded-full overflow-hidden border-2 border-primary/30 shadow-2xl shadow-primary/10">
                         <Image
                             src={photographerImage}
                             alt="Samar - Lead Photographer"
                             fill
                             className="object-cover"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
                     </div>
                 </motion.div>
 

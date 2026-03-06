@@ -113,6 +113,12 @@
       "description": "Used in About Page - Indian Flag Theme",
       "imageUrl": "https://picsum.photos/seed/indian-flag-art/1000/1250",
       "imageHint": "indian flag colors abstract art"
+    },
+    {
+      "id": "photographer-portrait",
+      "description": "Used in Homepage & About Page - Photographer (Indian male) portrait for Photographer Story section",
+      "imageUrl": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&h=900&fit=crop&crop=face",
+      "imageHint": "Indian male photographer portrait"
     }
   ]
 }
