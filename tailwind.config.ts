@@ -11,7 +11,8 @@ export default {
     extend: {
       fontFamily: {
         body: ['Alegreya', 'serif'],
-        headline: ['Belleza', 'sans-serif'],
+        headline: ['Cinzel', 'serif'],
+        accent: ['"Great Vibes"', 'cursive'],
         code: ['monospace'],
       },
       colors: {

@@ -1,30 +1,29 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 260 9% 11%; /* #1C191D Charcoal */
-    --foreground: 0 0% 98%;
-    --card: 260 9% 14%;
-    --card-foreground: 0 0% 98%;
-    --popover: 260 9% 11%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 266 27% 43%; /* #6A508B Deep Amethyst */
-    --primary-foreground: 0 0% 100%;
-    --secondary: 266 27% 20%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 260 9% 20%;
-    --muted-foreground: 0 0% 70%;
-    --accent: 225 78% 67%; /* #6888EC Vibrant Blue-Violet */
-    --accent-foreground: 0 0% 100%;
+    --background: 260 9% 6%; /* Deepest Midnight */
+    --foreground: 45 20% 96%; /* Soft Ivory */
+    --card: 260 9% 10%;
+    --card-foreground: 45 20% 96%;
+    --popover: 260 9% 6%;
+    --popover-foreground: 45 20% 96%;
+    --primary: 43 45% 61%; /* Royal Gold #C19E5F */
+    --primary-foreground: 260 9% 6%;
+    --secondary: 43 15% 15%;
+    --secondary-foreground: 45 20% 96%;
+    --muted: 260 9% 15%;
+    --muted-foreground: 45 10% 65%;
+    --accent: 38 65% 50%; /* Vibrant Golden Accent */
+    --accent-foreground: 45 20% 96%;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 260 9% 25%;
-    --input: 260 9% 25%;
-    --ring: 266 27% 43%;
-    --radius: 0.75rem;
+    --destructive-foreground: 45 20% 98%;
+    --border: 43 30% 20%;
+    --input: 43 30% 20%;
+    --ring: 43 45% 61%;
+    --radius: 0.5rem;
   }
 }
 
@@ -36,12 +35,12 @@
     @apply bg-background text-foreground font-body;
   }
   h1, h2, h3, h4, h5, h6 {
-    @apply font-headline tracking-tight;
+    @apply font-headline tracking-wider;
   }
 }
 
 .cinematic-overlay {
-  background: linear-gradient(to bottom, rgba(28, 25, 29, 0) 0%, rgba(28, 25, 29, 0.8) 100%);
+  background: linear-gradient(to bottom, rgba(15, 14, 16, 0) 0%, rgba(15, 14, 16, 0.9) 100%);
 }
 
 .text-gold {
@@ -50,10 +49,14 @@
   -webkit-text-fill-color: transparent;
 }
 
+.gold-border {
+  border: 1px solid rgba(193, 158, 95, 0.3);
+}
+
 .glow-button {
   position: relative;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glow-button::after {
@@ -63,9 +66,9 @@
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, rgba(106, 80, 139, 0.4) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(193, 158, 95, 0.2) 0%, transparent 70%);
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.4s ease;
 }
 
 .glow-button:hover::after {
@@ -73,13 +76,13 @@
 }
 
 .glow-button:hover {
-  box-shadow: 0 0 20px rgba(106, 80, 139, 0.5);
-  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(193, 158, 95, 0.3);
+  transform: translateY(-4px);
 }
 
 @keyframes float {
   0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+  50% { transform: translateY(-15px); }
   100% { transform: translateY(0px); }
 }
 
@@ -90,12 +93,12 @@
 .shimmer-effect {
   background: linear-gradient(
     90deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.05) 50%,
-    rgba(255, 255, 255, 0) 100%
+    rgba(193, 158, 95, 0) 0%,
+    rgba(193, 158, 95, 0.1) 50%,
+    rgba(193, 158, 95, 0) 100%
   );
   background-size: 200% 100%;
-  animation: shimmer 3s infinite linear;
+  animation: shimmer 4s infinite linear;
 }
 
 @keyframes shimmer {
