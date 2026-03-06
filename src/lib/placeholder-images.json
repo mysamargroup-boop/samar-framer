@@ -1,3 +1,58 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-1",
+      "description": "Luxurious Indian Wedding",
+      "imageUrl": "https://picsum.photos/seed/wed1/1920/1080",
+      "imageHint": "Indian wedding"
+    },
+    {
+      "id": "hero-2",
+      "description": "High Fashion editorial",
+      "imageUrl": "https://picsum.photos/seed/fashion1/1920/1080",
+      "imageHint": "fashion photography"
+    },
+    {
+      "id": "hero-3",
+      "description": "Premium Product setup",
+      "imageUrl": "https://picsum.photos/seed/product1/1920/1080",
+      "imageHint": "product luxury"
+    },
+    {
+      "id": "portfolio-wedding-1",
+      "description": "Elegant wedding couple",
+      "imageUrl": "https://picsum.photos/seed/pwed1/800/1200",
+      "imageHint": "wedding couple"
+    },
+    {
+      "id": "portfolio-fashion-1",
+      "description": "Cinematic fashion shoot",
+      "imageUrl": "https://picsum.photos/seed/pfash1/800/1000",
+      "imageHint": "fashion model"
+    },
+    {
+      "id": "portfolio-product-1",
+      "description": "Minimalist watch product",
+      "imageUrl": "https://picsum.photos/seed/pprod1/800/800",
+      "imageHint": "watch luxury"
+    },
+    {
+      "id": "portfolio-maternity-1",
+      "description": "Beautiful maternity portrait",
+      "imageUrl": "https://picsum.photos/seed/pmat1/800/1100",
+      "imageHint": "maternity shoot"
+    },
+    {
+      "id": "portfolio-baby-1",
+      "description": "Cute baby photoshoot",
+      "imageUrl": "https://picsum.photos/seed/pbaby1/800/900",
+      "imageHint": "baby studio"
+    },
+    {
+      "id": "photographer-1",
+      "description": "Lead Photographer",
+      "imageUrl": "https://picsum.photos/seed/photog1/600/800",
+      "imageHint": "portrait photographer"
+    }
+  ]
 }
