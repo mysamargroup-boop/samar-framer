@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
-import { Menu, X, Camera, ArrowRight, Calendar, Loader2 } from "lucide-react";
+import { Menu, X, Camera, ArrowRight, Calendar, Loader2, Instagram, Facebook, Twitter, Mail, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
@@ -105,37 +105,37 @@ export function Navbar() {
                 Reserve Now
               </Button>
             </DialogTrigger>
-            <DialogContent className="sm:max-w-[700px] bg-card border-primary/20 p-0 overflow-hidden">
+            <DialogContent className="sm:max-w-[800px] bg-card border-primary/20 p-0 overflow-hidden">
                <motion.div 
                  initial={{ opacity: 0, scale: 0.95 }}
                  animate={{ opacity: 1, scale: 1 }}
                  className="p-10"
                >
                   <DialogHeader className="mb-10 text-center">
-                    <DialogTitle className="font-headline text-4xl text-primary uppercase">Begin Your Journey</DialogTitle>
+                    <DialogTitle className="font-headline text-4xl text-primary uppercase tracking-widest">Begin Your Journey</DialogTitle>
                     <p className="text-muted-foreground text-sm font-sans mt-3">Let's craft your eternal visual story together.</p>
                   </DialogHeader>
 
                   {!isBooked ? (
                     <form onSubmit={handleBookingSubmit} className="space-y-6">
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div className="space-y-5">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                        <div className="space-y-6">
                           <div className="space-y-2">
-                            <Label className="text-[10px] uppercase tracking-widest font-sans text-primary/60">Name</Label>
-                            <Input placeholder="Your Name" className="bg-background border-border focus:ring-primary h-12" required />
+                            <Label className="text-[10px] uppercase tracking-[0.3em] font-bold text-primary/60">Full Name</Label>
+                            <Input placeholder="Enter your name" className="bg-background border-border focus:ring-primary h-12" required />
                           </div>
                           <div className="space-y-2">
-                            <Label className="text-[10px] uppercase tracking-widest font-sans text-primary/60">Email</Label>
+                            <Label className="text-[10px] uppercase tracking-[0.3em] font-bold text-primary/60">Email Address</Label>
                             <Input type="email" placeholder="email@example.com" className="bg-background border-border h-12" required />
                           </div>
                           <div className="space-y-2">
-                            <Label className="text-[10px] uppercase tracking-widest font-sans text-primary/60">Contact</Label>
+                            <Label className="text-[10px] uppercase tracking-[0.3em] font-bold text-primary/60">Contact Number</Label>
                             <Input placeholder="+91" className="bg-background border-border h-12" required />
                           </div>
                         </div>
-                        <div className="space-y-5">
+                        <div className="space-y-6">
                           <div className="space-y-2">
-                            <Label className="text-[10px] uppercase tracking-widest font-sans text-primary/60">Shoot Type</Label>
+                            <Label className="text-[10px] uppercase tracking-[0.3em] font-bold text-primary/60">Type of Shoot</Label>
                             <Select>
                               <SelectTrigger className="bg-background h-12">
                                 <SelectValue placeholder="Select Category" />
@@ -149,23 +149,23 @@ export function Navbar() {
                             </Select>
                           </div>
                           <div className="space-y-2">
-                            <Label className="text-[10px] uppercase tracking-widest font-sans text-primary/60">Vision Details</Label>
-                            <Textarea placeholder="Tell us about your dream project..." className="bg-background border-border resize-none" rows={4} />
+                            <Label className="text-[10px] uppercase tracking-[0.3em] font-bold text-primary/60">Your Vision</Label>
+                            <Textarea placeholder="Tell us about your dream project details..." className="bg-background border-border resize-none" rows={5} />
                           </div>
                         </div>
                       </div>
-                      <Button type="submit" disabled={isBookingLoading} className="w-full bg-primary py-7 text-[10px] uppercase tracking-widest font-bold rounded-full mt-4">
+                      <Button type="submit" disabled={isBookingLoading} className="w-full bg-primary py-7 text-[10px] uppercase tracking-widest font-bold rounded-full mt-6 shadow-[0_10px_30px_rgba(193,158,95,0.3)]">
                         {isBookingLoading ? <Loader2 className="animate-spin" /> : "Request Reservation"}
                       </Button>
                     </form>
                   ) : (
-                    <div className="text-center py-12 space-y-5">
-                       <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto text-primary">
-                          <Calendar className="w-10 h-10" />
+                    <div className="text-center py-16 space-y-6">
+                       <div className="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center mx-auto text-primary">
+                          <Calendar className="w-12 h-12" />
                        </div>
-                       <h3 className="font-headline text-3xl uppercase">Inquiry Sent</h3>
-                       <p className="text-muted-foreground text-sm font-sans italic">Our luxury consultant will reach out within 24 hours.</p>
-                       <Button onClick={() => setIsBooked(false)} variant="outline" className="mt-6 border-primary text-primary px-10 rounded-full uppercase tracking-widest">Done</Button>
+                       <h3 className="font-headline text-3xl uppercase tracking-widest">Inquiry Received</h3>
+                       <p className="text-muted-foreground text-sm font-sans italic max-w-xs mx-auto">Our luxury visual consultant will reach out to you within 24 hours.</p>
+                       <Button onClick={() => setIsBooked(false)} variant="outline" className="mt-8 border-primary text-primary px-12 rounded-full h-12 uppercase tracking-widest font-bold">Close</Button>
                     </div>
                   )}
                </motion.div>
@@ -198,9 +198,9 @@ export function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 35, stiffness: 250 }}
-              className="fixed inset-y-0 right-0 w-full sm:w-[450px] bg-background border-l border-primary/20 z-[60] flex flex-col p-12 lg:hidden pointer-events-auto"
+              className="fixed inset-y-0 right-0 w-full sm:w-[450px] bg-background border-l border-primary/20 z-[60] flex flex-col p-10 lg:hidden pointer-events-auto"
             >
-              <div className="flex justify-between items-center mb-20">
+              <div className="flex justify-between items-center mb-12">
                 <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-2">
                   <Camera className="w-7 h-7 text-primary" />
                   <span className="font-headline text-xl tracking-widest uppercase">SAMAR <span className="text-primary">FRAMER</span></span>
@@ -210,7 +210,18 @@ export function Navbar() {
                 </button>
               </div>
 
-              <nav className="flex flex-col gap-12">
+              {/* Top CTA in Sidebar */}
+              <div className="mb-12">
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <Button onClick={() => setIsMobileMenuOpen(false)} className="w-full h-12 text-[10px] font-sans font-bold uppercase tracking-widest bg-primary text-primary-foreground rounded-full shadow-[0_10px_20px_rgba(193,158,95,0.2)]">
+                      Book A Session
+                    </Button>
+                  </DialogTrigger>
+                </Dialog>
+              </div>
+
+              <nav className="flex flex-col gap-10">
                 {navLinks.map((link, idx) => (
                   <motion.div
                     key={link.name}
@@ -221,28 +232,49 @@ export function Navbar() {
                     <Link
                       href={link.href}
                       onClick={() => setIsMobileMenuOpen(false)}
-                      className="group flex items-center justify-between text-3xl font-headline uppercase tracking-[0.2em] text-foreground/60 hover:text-primary transition-colors"
+                      className="group flex items-center justify-between py-2 text-foreground/60 hover:text-primary transition-colors border-b border-primary/5"
                     >
-                      <span className="font-sans font-bold text-lg uppercase tracking-[0.3em]">{link.name}</span>
-                      <ArrowRight className="w-6 h-6 opacity-0 group-hover:opacity-100 transition-all -translate-x-6 group-hover:translate-x-0" />
+                      <span className="font-sans font-bold text-sm uppercase tracking-[0.3em]">{link.name}</span>
+                      <ArrowRight className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-all -translate-x-4 group-hover:translate-x-0" />
                     </Link>
                   </motion.div>
                 ))}
-                
-                <div className="h-px bg-primary/20 my-10" />
-                
-                <Dialog>
-                  <DialogTrigger asChild>
-                    <Button onClick={() => setIsMobileMenuOpen(false)} className="w-full py-4 text-[10px] font-sans font-bold uppercase tracking-widest bg-primary text-primary-foreground rounded-full max-w-[200px] mx-auto h-auto">
-                      Book A Session
-                    </Button>
-                  </DialogTrigger>
-                </Dialog>
               </nav>
 
-              <div className="mt-auto pt-12 border-t border-primary/10">
-                 <p className="text-[10px] uppercase tracking-[0.5em] text-primary/60 font-sans font-bold mb-5">Studio Location</p>
-                 <p className="text-muted-foreground italic font-body text-2xl">Mumbai • Rajasthan • Global</p>
+              <div className="mt-auto space-y-12">
+                {/* Contact Info in Sidebar */}
+                <div className="space-y-4 pt-12 border-t border-primary/10">
+                   <div className="flex items-center gap-4 text-muted-foreground group">
+                      <div className="w-8 h-8 rounded-full border border-primary/20 flex items-center justify-center text-primary/60 group-hover:bg-primary group-hover:text-white transition-all">
+                        <Mail size={14} />
+                      </div>
+                      <span className="text-xs tracking-wider">hello@samarframer.com</span>
+                   </div>
+                   <div className="flex items-center gap-4 text-muted-foreground group">
+                      <div className="w-8 h-8 rounded-full border border-primary/20 flex items-center justify-center text-primary/60 group-hover:bg-primary group-hover:text-white transition-all">
+                        <Phone size={14} />
+                      </div>
+                      <span className="text-xs tracking-wider">+91 98765 43210</span>
+                   </div>
+                </div>
+
+                {/* Social Icons in Sidebar */}
+                <div className="flex items-center gap-6">
+                  <a href="#" className="p-3 rounded-full border border-primary/10 hover:bg-primary hover:text-white transition-all text-primary/60">
+                    <Instagram size={18} />
+                  </a>
+                  <a href="#" className="p-3 rounded-full border border-primary/10 hover:bg-primary hover:text-white transition-all text-primary/60">
+                    <Facebook size={18} />
+                  </a>
+                  <a href="#" className="p-3 rounded-full border border-primary/10 hover:bg-primary hover:text-white transition-all text-primary/60">
+                    <Twitter size={18} />
+                  </a>
+                </div>
+
+                 <div className="pt-6">
+                    <p className="text-[10px] uppercase tracking-[0.5em] text-primary/40 font-bold mb-2">Location</p>
+                    <p className="text-muted-foreground italic font-headline text-lg tracking-widest">Mumbai • Global</p>
+                 </div>
               </div>
             </motion.div>
           </>
