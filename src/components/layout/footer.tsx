@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Camera, MapPin, Phone, Mail } from "lucide-react";
+import { Camera, MapPin, Phone, Mail, Instagram, Facebook, Twitter } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 export function Footer() {
@@ -23,7 +23,15 @@ export function Footer() {
             <div className="flex gap-6">
                <a href="https://instagram.com" className="text-primary/60 hover:text-primary transition-colors">
                   <span className="sr-only">Instagram</span>
-                  <i className="lucide-instagram w-6 h-6" />
+                  <Instagram className="w-6 h-6" />
+               </a>
+               <a href="https://facebook.com" className="text-primary/60 hover:text-primary transition-colors">
+                  <span className="sr-only">Facebook</span>
+                  <Facebook className="w-6 h-6" />
+               </a>
+               <a href="https://twitter.com" className="text-primary/60 hover:text-primary transition-colors">
+                  <span className="sr-only">Twitter</span>
+                  <Twitter className="w-6 h-6" />
                </a>
             </div>
           </div>
