@@ -102,9 +102,9 @@ export default function Home() {
               ))}
             </div>
 
-            <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-accent rounded-full px-12 py-8 text-sm uppercase tracking-widest font-bold shadow-xl transition-all duration-500 hover:scale-105">
+            <button className="bg-primary text-primary-foreground hover:bg-accent rounded-full px-12 py-6 text-sm uppercase tracking-widest font-bold shadow-xl transition-all duration-500 hover:scale-105">
               <Link href="/about">Discover The Legacy</Link>
-            </Button>
+            </button>
           </motion.div>
         </div>
       </section>
@@ -237,7 +237,7 @@ export default function Home() {
           className="max-w-5xl mx-auto text-center relative z-10 space-y-8 lg:space-y-12"
         >
           <span className="text-primary font-accent text-4xl lg:text-5xl">Your Story Awaits</span>
-          <h2 className="text-3xl lg:text-6xl font-headline leading-tight uppercase">Ready to Create <br/><span className="text-gold italic">Something Eternal?</span></h2>
+          <h2 className="text-2xl lg:text-6xl font-headline leading-tight uppercase">Ready to Create <br/><span className="text-gold italic">Something Eternal?</span></h2>
           <p className="text-muted-foreground text-lg lg:text-xl font-body max-w-2xl mx-auto leading-relaxed italic">
             Book your session today and let's craft an eternal story together. Limited slots available for the upcoming wedding season.
           </p>

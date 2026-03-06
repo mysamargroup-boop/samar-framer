@@ -221,7 +221,7 @@ export function Navbar() {
                 </Dialog>
               </div>
 
-              <nav className="flex flex-col gap-10">
+              <nav className="flex flex-col gap-4">
                 {navLinks.map((link, idx) => (
                   <motion.div
                     key={link.name}
