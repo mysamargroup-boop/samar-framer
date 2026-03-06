@@ -45,19 +45,23 @@ export function Navbar() {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-6 px-4 pointer-events-none">
+    <header className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-0 px-0 pointer-events-none">
       <motion.div
         initial={false}
         animate={{
           scale: isScrolled ? 0.98 : 1,
-          backgroundColor: isScrolled ? "rgba(10, 10, 12, 0.95)" : "rgba(10, 10, 12, 0.4)",
+          backgroundColor: isScrolled ? "rgba(10, 10, 12, 0.95)" : "rgba(10, 10, 12, 0.3)",
           borderColor: isScrolled ? "rgba(193, 158, 95, 0.3)" : "transparent",
-          width: isScrolled ? "min(1200px, 95%)" : "min(1400px, 100%)",
-          y: isScrolled ? 0 : -10,
+          width: isScrolled ? "min(1200px, 95%)" : "100%",
+          y: isScrolled ? 24 : 0,
+          borderRadius: isScrolled ? "9999px" : "0px",
+          paddingLeft: isScrolled ? "2.5rem" : "5%",
+          paddingRight: isScrolled ? "2.5rem" : "5%",
+          height: isScrolled ? "4.5rem" : "6rem",
         }}
         transition={{ type: "spring", damping: 25, stiffness: 120 }}
         className={cn(
-          "mx-auto pointer-events-auto backdrop-blur-xl flex items-center justify-between px-6 sm:px-10 py-3 border rounded-full transition-all duration-500 shadow-2xl relative"
+          "mx-auto pointer-events-auto backdrop-blur-xl flex items-center justify-between border shadow-2xl relative"
         )}
       >
         {/* Logo Section */}
@@ -227,7 +231,7 @@ export function Navbar() {
                 
                 <Dialog>
                   <DialogTrigger asChild>
-                    <Button onClick={() => setIsMobileMenuOpen(false)} className="w-full py-8 text-[11px] font-sans font-bold uppercase tracking-widest bg-primary text-primary-foreground rounded-full max-w-[280px] mx-auto">
+                    <Button onClick={() => setIsMobileMenuOpen(false)} className="w-full py-6 text-[10px] font-sans font-bold uppercase tracking-widest bg-primary text-primary-foreground rounded-full max-w-[240px] mx-auto h-auto">
                       Book A Session
                     </Button>
                   </DialogTrigger>
