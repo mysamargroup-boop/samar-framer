@@ -62,7 +62,7 @@ export default function Home() {
               <h2 className="text-4xl lg:text-7xl font-headline leading-tight">Capturing Life's <br/><span className="text-primary italic">Eternal Frames</span></h2>
             </div>
             <p className="text-muted-foreground text-lg lg:text-xl leading-relaxed font-body italic">
-              Founded on the belief that every moment holds an eternal secret, Eternal Frame Studio has spent over a decade perfecting the art of cinematic storytelling.
+              Founded on the belief that every moment holds an eternal secret, Samar Framer has spent over a decade perfecting the art of cinematic storytelling.
             </p>
             <div className="space-y-5">
               {['Cinematic Storytelling', 'High-End Editorial Post-Processing', 'Bespoke Client Experience'].map((item) => (
@@ -188,7 +188,7 @@ export default function Home() {
           >
             <Star className="w-8 h-8 lg:w-10 lg:h-10 text-primary/30 absolute -top-4 lg:-top-5 left-1/2 -translate-x-1/2" />
             <p className="text-xl lg:text-4xl font-body italic leading-relaxed text-foreground/90 mb-8 lg:mb-12">
-              "Working with Eternal Frame was the best decision we made for our wedding. They didn't just take photos; they captured the emotions we felt in every moment. The final cinematic film left us in tears."
+              "Working with Samar Framer was the best decision we made for our wedding. They didn't just take photos; they captured the emotions we felt in every moment."
             </p>
             <div>
                <h4 className="font-headline text-xl lg:text-2xl uppercase tracking-[0.3em] text-primary">Ananya & Rohit</h4>

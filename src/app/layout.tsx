@@ -4,8 +4,8 @@ import { Navbar } from '@/components/layout/navbar';
 import { Footer } from '@/components/layout/footer';
 
 export const metadata: Metadata = {
-  title: 'Eternal Frame Photography | Luxury Wedding & Fashion Photographer',
-  description: 'Premium photography studio in India specializing in Weddings, Fashion, and Products. Capturing cinematic moments that last forever.',
+  title: 'Samar Framer | Luxury Wedding & Fashion Photographer',
+  description: 'Premium photography studio specializing in Weddings, Fashion, and Products. Capturing cinematic moments that last forever.',
 };
 
 export default function RootLayout({
