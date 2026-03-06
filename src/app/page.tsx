@@ -183,7 +183,7 @@ export default function Home() {
                 className="text-5xl lg:text-8xl font-headline uppercase leading-none"
               >
                 Cinematic <br /><span className="text-primary">Films</span>
-              </h2 >
+              </motion.h2>
             </div>
             <motion.p
               initial={{ opacity: 0 }}
