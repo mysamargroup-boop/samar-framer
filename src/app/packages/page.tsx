@@ -57,11 +57,11 @@ export default function PackagesPage() {
   };
 
   return (
-    <div className="pt-32 pb-24 px-6 bg-background">
+    <div className="pt-40 sm:pt-48 pb-24 px-6 bg-background">
       <div className="max-w-7xl mx-auto space-y-24">
         {/* Header */}
         <div className="text-center space-y-6">
-          <h1 className="text-6xl md:text-8xl font-headline">Investment</h1>
+          <h1 className="text-5xl sm:text-6xl md:text-8xl font-headline uppercase tracking-tight">Investment</h1>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto font-body">
             Transparent pricing for timeless memories. Every package is crafted with the same commitment to excellence.
           </p>
@@ -73,7 +73,7 @@ export default function PackagesPage() {
             <div 
               key={i} 
               className={pkg.popular 
-                ? "relative bg-primary p-8 rounded-3xl border border-primary-foreground/20 scale-105 z-10 shadow-2xl" 
+                ? "relative bg-primary p-8 rounded-3xl border border-primary-foreground/20 md:scale-105 z-10 shadow-2xl" 
                 : "bg-card p-8 rounded-3xl border border-border"}
             >
               {pkg.popular && (
@@ -108,7 +108,7 @@ export default function PackagesPage() {
         </div>
 
         {/* AI Advisor Tool */}
-        <section className="bg-card/30 backdrop-blur-xl border border-border p-12 rounded-[3rem]">
+        <section className="bg-card/30 backdrop-blur-xl border border-border p-8 sm:p-12 rounded-[2rem] sm:rounded-[3rem]">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <div className="space-y-8">
               <div className="space-y-4">
@@ -116,13 +116,13 @@ export default function PackagesPage() {
                   <Sparkles className="w-5 h-5" />
                   <span>AI Package Advisor</span>
                 </div>
-                <h2 className="text-4xl font-headline">Unsure which package fits you?</h2>
+                <h2 className="text-3xl sm:text-4xl font-headline uppercase">Unsure which package fits you?</h2>
                 <p className="text-muted-foreground leading-relaxed">
                   Let our intelligence guide you. Provide your preferences and budget, and we'll recommend the ideal setup for your special day.
                 </p>
               </div>
               
-              <form onSubmit={handleAIAdvisor} className="space-y-6 p-8 bg-background/50 rounded-2xl border border-border">
+              <form onSubmit={handleAIAdvisor} className="space-y-6 p-6 sm:p-8 bg-background/50 rounded-2xl border border-border">
                 <div className="space-y-2">
                   <Label>Photo Shoot Type</Label>
                   <Select onValueChange={setShootType}>
@@ -155,14 +155,14 @@ export default function PackagesPage() {
               </form>
             </div>
 
-            <div className="space-y-8 h-full flex flex-col justify-center min-h-[400px]">
+            <div className="space-y-8 h-full flex flex-col justify-center min-h-[300px] sm:min-h-[400px]">
               {!advisorResult && !loading && (
-                <div className="text-center p-12 border-2 border-dashed border-border rounded-3xl">
+                <div className="text-center p-8 sm:p-12 border-2 border-dashed border-border rounded-3xl">
                   <p className="text-muted-foreground font-body italic">Fill out the form on the left to see our AI recommendations.</p>
                 </div>
               )}
               {loading && (
-                <div className="flex flex-col items-center justify-center gap-4 text-center p-12">
+                <div className="flex flex-col items-center justify-center gap-4 text-center p-8 sm:p-12">
                    <Loader2 className="w-12 h-12 animate-spin text-primary" />
                    <p className="text-muted-foreground animate-pulse">Calculating optimal configurations...</p>
                 </div>
@@ -171,13 +171,13 @@ export default function PackagesPage() {
                 <div className="space-y-6 animate-in fade-in slide-in-from-right-4">
                   <Card className="bg-primary/5 border-primary/20">
                     <CardHeader>
-                      <CardTitle className="font-headline text-2xl text-primary">Our Top Recommendation</CardTitle>
+                      <CardTitle className="font-headline text-2xl text-primary uppercase">Our Recommendation</CardTitle>
                       <CardDescription className="italic">Based on your {shootType} request</CardDescription>
                     </CardHeader>
                     <CardContent className="space-y-6">
                       {advisorResult.suggestedPackages.map((pkg, idx) => (
                         <div key={idx} className="space-y-2">
-                           <div className="flex justify-between items-center">
+                           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
                               <h4 className="font-bold text-lg">{pkg.name}</h4>
                               <span className="text-accent font-headline text-xl">₹{pkg.priceINR.toLocaleString()}</span>
                            </div>
@@ -192,7 +192,7 @@ export default function PackagesPage() {
                       
                       {advisorResult.suggestedAddOns.length > 0 && (
                         <div className="pt-6 border-t border-border">
-                           <h5 className="font-headline text-lg mb-4 text-primary">Recommended Add-ons</h5>
+                           <h5 className="font-headline text-lg mb-4 text-primary uppercase">Suggested Add-ons</h5>
                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                               {advisorResult.suggestedAddOns.map((addon, i) => (
                                 <div key={i} className="text-xs bg-card p-3 rounded border border-border">
@@ -205,7 +205,7 @@ export default function PackagesPage() {
                       )}
                       
                       <div className="pt-6 border-t border-border">
-                         <p className="text-sm leading-relaxed text-muted-foreground">
+                         <p className="text-sm leading-relaxed text-muted-foreground italic">
                             {advisorResult.explanation}
                          </p>
                       </div>
