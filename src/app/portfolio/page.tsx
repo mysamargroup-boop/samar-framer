@@ -7,7 +7,7 @@ import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import { Camera, Image as ImageIcon, Sparkles, Heart, Baby, ShoppingBag, Youtube, Play, X } from "lucide-react";
-import portfolioData from "@/data/portfolio.json";
+import portfolioData from "@/lib/portfolio.json";
 
 const categories = [
   { name: "All", icon: <ImageIcon size={18} /> },
