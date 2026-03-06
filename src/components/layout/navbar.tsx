@@ -22,25 +22,33 @@ export function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 100);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <header
-      className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 px-6 sm:px-10 py-6 sm:py-8",
-        isScrolled
-          ? "bg-background/90 backdrop-blur-xl border-b border-primary/10 py-4 sm:py-5"
-          : "bg-transparent"
-      )}
-    >
-      <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
+    <header className="fixed top-0 left-0 right-0 z-50 pointer-events-none">
+      <motion.div
+        initial={false}
+        animate={{
+          y: isScrolled ? 20 : 0,
+          scale: isScrolled ? 0.95 : 1,
+          backgroundColor: isScrolled ? "rgba(10, 10, 12, 0.95)" : "rgba(10, 10, 12, 0)",
+          borderColor: isScrolled ? "rgba(193, 158, 95, 0.2)" : "rgba(193, 158, 95, 0)",
+          borderWidth: isScrolled ? "1px" : "0px",
+          width: isScrolled ? "90%" : "100%",
+          borderRadius: isScrolled ? "100px" : "0px",
+        }}
+        transition={{ type: "spring", damping: 20, stiffness: 100 }}
+        className={cn(
+          "mx-auto pointer-events-auto transition-all duration-500 backdrop-blur-xl flex items-center justify-between px-6 sm:px-12 py-5 sm:py-6"
+        )}
+      >
         <Link href="/" className="flex items-center gap-2 group shrink-0">
-          <Camera className="w-7 h-7 sm:w-10 h-10 text-primary group-hover:scale-110 transition-transform duration-500" />
-          <span className="font-headline text-lg sm:text-2xl lg:text-3xl tracking-[0.1em] sm:tracking-[0.2em] uppercase whitespace-nowrap">
+          <Camera className="w-6 h-6 sm:w-8 sm:h-8 text-primary group-hover:scale-110 transition-transform duration-500" />
+          <span className="font-headline text-lg sm:text-2xl tracking-[0.1em] uppercase whitespace-nowrap">
             Eternal <span className="text-primary">Frame</span>
           </span>
         </Link>
@@ -54,7 +62,7 @@ export function Navbar() {
                 key={link.name}
                 href={link.href}
                 className={cn(
-                  "font-sans text-[10px] lg:text-xs uppercase tracking-[0.2em] lg:tracking-[0.3em] transition-all duration-300 relative py-2 group",
+                  "font-sans text-[10px] uppercase tracking-[0.2em] transition-all duration-300 relative py-2 group",
                   isActive ? "text-primary font-bold" : "text-foreground/70 hover:text-primary"
                 )}
               >
@@ -74,7 +82,7 @@ export function Navbar() {
         </div>
 
         <div className="hidden md:block shrink-0">
-          <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-none px-6 lg:px-10 py-4 lg:py-6 uppercase tracking-[0.2em] font-sans font-bold text-[10px] lg:text-xs glow-button">
+          <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-full px-6 lg:px-8 uppercase tracking-[0.2em] font-sans font-bold text-[10px] glow-button h-10">
             <Link href="/booking">Reserve Now</Link>
           </Button>
         </div>
@@ -87,7 +95,7 @@ export function Navbar() {
         >
           {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
-      </div>
+      </motion.div>
 
       {/* Sub Menu Drawer (Mobile/Tablet) */}
       <AnimatePresence>
@@ -96,8 +104,8 @@ export function Navbar() {
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
-            transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed inset-y-0 right-0 w-full sm:w-[400px] bg-background border-l border-primary/20 z-[60] shadow-2xl flex flex-col p-12 md:hidden"
+            transition={{ type: "spring", damping: 30, stiffness: 200 }}
+            className="fixed inset-y-0 right-0 w-full sm:w-[400px] bg-background/95 backdrop-blur-2xl border-l border-primary/20 z-[60] shadow-2xl flex flex-col p-12 md:hidden pointer-events-auto"
           >
             <div className="flex justify-between items-center mb-20">
               <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-2">
@@ -127,13 +135,13 @@ export function Navbar() {
                 );
               })}
               <div className="h-px bg-primary/10 my-4" />
-              <Button asChild onClick={() => setIsMobileMenuOpen(false)} className="py-10 text-xl font-headline uppercase tracking-[0.3em] rounded-none bg-primary text-primary-foreground shadow-xl">
+              <Button asChild onClick={() => setIsMobileMenuOpen(false)} className="py-10 text-xl font-headline uppercase tracking-[0.3em] rounded-full bg-primary text-primary-foreground shadow-xl">
                 <Link href="/booking">Book a Session</Link>
               </Button>
             </nav>
 
             <div className="mt-auto space-y-6 pt-12 border-t border-primary/10">
-              <p className="text-xs uppercase tracking-[0.4em] text-primary/50 font-bold">Studio HQ</p>
+              <p className="text-xs uppercase tracking-[0.4em] text-primary/50 font-bold font-sans">Studio HQ</p>
               <p className="text-muted-foreground italic font-body text-lg">Studio 101, Art District, Mumbai</p>
             </div>
           </motion.div>
@@ -147,7 +155,7 @@ export function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setIsMobileMenuOpen(false)}
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[55] md:hidden"
+            className="fixed inset-0 bg-black/80 backdrop-blur-md z-[55] md:hidden pointer-events-auto"
           />
         )}
       </AnimatePresence>

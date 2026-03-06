@@ -13,6 +13,7 @@ export default {
         body: ['Alegreya', 'serif'],
         headline: ['Cinzel', 'serif'],
         accent: ['"Great Vibes"', 'cursive'],
+        signature: ['Allura', 'cursive'],
         sans: ['Montserrat', 'sans-serif'],
         code: ['monospace'],
       },
