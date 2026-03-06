@@ -198,9 +198,9 @@ export function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 35, stiffness: 250 }}
-              className="fixed inset-y-0 right-0 w-full sm:w-[450px] bg-background border-l border-primary/20 z-[60] flex flex-col p-10 lg:hidden pointer-events-auto"
+              className="fixed inset-y-0 right-0 w-full sm:w-[450px] bg-background border-l border-primary/20 z-[60] flex flex-col p-8 sm:p-10 lg:hidden pointer-events-auto"
             >
-              <div className="flex justify-between items-center mb-12">
+              <div className="flex justify-between items-center mb-8 sm:mb-12">
                 <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-2">
                   <Camera className="w-7 h-7 text-primary" />
                   <span className="font-headline text-xl tracking-widest uppercase">SAMAR <span className="text-primary">FRAMER</span></span>
@@ -211,7 +211,7 @@ export function Navbar() {
               </div>
 
               {/* Top CTA in Sidebar */}
-              <div className="mb-12">
+              <div className="mb-8 sm:mb-12">
                 <Dialog>
                   <DialogTrigger asChild>
                     <Button onClick={() => setIsMobileMenuOpen(false)} className="w-full h-12 text-[10px] font-sans font-bold uppercase tracking-widest bg-primary text-primary-foreground rounded-full shadow-[0_10px_20px_rgba(193,158,95,0.2)]">
@@ -221,13 +221,13 @@ export function Navbar() {
                 </Dialog>
               </div>
 
-              <nav className="flex flex-col gap-4">
+              <nav className="flex flex-col gap-2">
                 {navLinks.map((link, idx) => (
                   <motion.div
                     key={link.name}
                     initial={{ opacity: 0, x: 30 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: idx * 0.1 }}
+                    transition={{ delay: idx * 0.05 }}
                   >
                     <Link
                       href={link.href}
@@ -241,25 +241,28 @@ export function Navbar() {
                 ))}
               </nav>
 
-              <div className="mt-auto space-y-12">
-                {/* Contact Info in Sidebar */}
-                <div className="space-y-4 pt-12 border-t border-primary/10">
-                   <div className="flex items-center gap-4 text-muted-foreground group">
+              <div className="mt-auto pt-10 border-t border-primary/10">
+                {/* Contact Info: Sidewise with Divider */}
+                <div className="flex items-center justify-between gap-4 mb-8">
+                   <div className="flex items-center gap-2 text-muted-foreground group flex-1">
                       <div className="w-8 h-8 rounded-full border border-primary/20 flex items-center justify-center text-primary/60 group-hover:bg-primary group-hover:text-white transition-all">
                         <Mail size={14} />
                       </div>
-                      <span className="text-xs tracking-wider">hello@samarframer.com</span>
+                      <span className="text-[10px] tracking-wider whitespace-nowrap overflow-hidden text-ellipsis">hello@samarframer.com</span>
                    </div>
-                   <div className="flex items-center gap-4 text-muted-foreground group">
+                   
+                   <div className="w-[1px] h-6 bg-primary/20" />
+
+                   <div className="flex items-center gap-2 text-muted-foreground group flex-1 justify-end">
                       <div className="w-8 h-8 rounded-full border border-primary/20 flex items-center justify-center text-primary/60 group-hover:bg-primary group-hover:text-white transition-all">
                         <Phone size={14} />
                       </div>
-                      <span className="text-xs tracking-wider">+91 98765 43210</span>
+                      <span className="text-[10px] tracking-wider whitespace-nowrap">+91 98765 43210</span>
                    </div>
                 </div>
 
-                {/* Social Icons in Sidebar */}
-                <div className="flex items-center gap-6">
+                {/* Social Icons: Below Contact Info */}
+                <div className="flex items-center justify-center gap-6 mb-8">
                   <a href="#" className="p-3 rounded-full border border-primary/10 hover:bg-primary hover:text-white transition-all text-primary/60">
                     <Instagram size={18} />
                   </a>
@@ -271,10 +274,10 @@ export function Navbar() {
                   </a>
                 </div>
 
-                 <div className="pt-6">
+                <div className="text-center">
                     <p className="text-[10px] uppercase tracking-[0.5em] text-primary/40 font-bold mb-2">Location</p>
                     <p className="text-muted-foreground italic font-headline text-lg tracking-widest">Mumbai • Global</p>
-                 </div>
+                </div>
               </div>
             </motion.div>
           </>
