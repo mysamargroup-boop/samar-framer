@@ -1,5 +1,6 @@
+
 import Link from "next/link";
-import { Instagram, Facebook, Twitter, Mail, Phone, MapPin, Camera } from "lucide-react";
+import { Instagram, Facebook, Twitter, Mail, Phone, MapPin, Camera, Heart } from "lucide-react";
 
 export function Footer() {
   return (
@@ -16,9 +17,9 @@ export function Footer() {
             Capturing the soul of moments through a luxury cinematic lens. Based in India, serving globally with a focus on high-end weddings and fashion editorials.
           </p>
           <div className="flex gap-4">
-            <Link href="#" className="hover:text-primary transition-colors"><Instagram className="w-5 h-5" /></Link>
-            <Link href="#" className="hover:text-primary transition-colors"><Facebook className="w-5 h-5" /></Link>
-            <Link href="#" className="hover:text-primary transition-colors"><Twitter className="w-5 h-5" /></Link>
+            <Link href="https://instagram.com" className="hover:text-primary transition-colors"><Instagram className="w-5 h-5" /></Link>
+            <Link href="https://facebook.com" className="hover:text-primary transition-colors"><Facebook className="w-5 h-5" /></Link>
+            <Link href="https://twitter.com" className="hover:text-primary transition-colors"><Twitter className="w-5 h-5" /></Link>
           </div>
         </div>
 
@@ -36,11 +37,11 @@ export function Footer() {
         <div>
           <h4 className="font-headline uppercase tracking-widest text-sm mb-6">Photography</h4>
           <ul className="space-y-4 text-sm text-muted-foreground">
-            <li>Wedding Photography</li>
-            <li>Fashion Editorials</li>
-            <li>Product Luxury</li>
-            <li>Maternity & Portraits</li>
-            <li>Pre-Wedding Shoots</li>
+            <li><Link href="/portfolio?category=Wedding" className="hover:text-primary transition-colors">Wedding Photography</Link></li>
+            <li><Link href="/portfolio?category=Fashion" className="hover:text-primary transition-colors">Fashion Editorials</Link></li>
+            <li><Link href="/portfolio?category=Product" className="hover:text-primary transition-colors">Product Luxury</Link></li>
+            <li><Link href="/portfolio?category=Maternity" className="hover:text-primary transition-colors">Maternity & Portraits</Link></li>
+            <li><Link href="/portfolio?category=Pre-Wedding" className="hover:text-primary transition-colors">Pre-Wedding Shoots</Link></li>
           </ul>
         </div>
 
@@ -63,8 +64,14 @@ export function Footer() {
         </div>
       </div>
       
-      <div className="max-w-7xl mx-auto pt-8 border-t border-border/50 text-center text-xs text-muted-foreground tracking-widest uppercase">
-        © {new Date().getFullYear()} Eternal Frame Photography Studio. All Rights Reserved.
+      <div className="max-w-7xl mx-auto pt-8 border-t border-border/50 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="text-xs text-muted-foreground tracking-widest uppercase">
+          © {new Date().getFullYear()} Eternal Frame Photography Studio. All Rights Reserved.
+        </div>
+        <div className="text-xs text-muted-foreground/60 tracking-[0.3em] uppercase flex items-center gap-2">
+          Designed By <span className="text-primary font-bold">Samar</span>
+          <Heart className="w-3 h-3 text-primary animate-pulse" />
+        </div>
       </div>
     </footer>
   );

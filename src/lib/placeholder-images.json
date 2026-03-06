@@ -3,7 +3,7 @@
     {
       "id": "hero-1",
       "description": "Luxurious Indian Wedding",
-      "imageUrl": "https://picsum.photos/seed/wed1/1920/1080",
+      "imageUrl": "https://picsum.photos/seed/wed-grand/1920/1080",
       "imageHint": "Indian wedding"
     },
     {
@@ -23,6 +23,24 @@
       "description": "Elegant wedding couple",
       "imageUrl": "https://picsum.photos/seed/pwed1/800/1200",
       "imageHint": "wedding couple"
+    },
+    {
+      "id": "wedding-ritual-1",
+      "description": "Indian Wedding Rituals",
+      "imageUrl": "https://picsum.photos/seed/ritual1/800/1200",
+      "imageHint": "Indian ritual"
+    },
+    {
+      "id": "wedding-bride-1",
+      "description": "Indian Bridal Portrait",
+      "imageUrl": "https://picsum.photos/seed/bride1/800/1200",
+      "imageHint": "Indian bride"
+    },
+    {
+      "id": "wedding-decor-1",
+      "description": "Luxury Wedding Decor",
+      "imageUrl": "https://picsum.photos/seed/decor1/800/800",
+      "imageHint": "wedding decor"
     },
     {
       "id": "portfolio-fashion-1",

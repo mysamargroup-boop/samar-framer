@@ -1,6 +1,8 @@
+
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { cn } from "@/lib/utils";
@@ -11,21 +13,27 @@ const categories = ["All", "Wedding", "Fashion", "Product", "Maternity", "Baby"]
 const galleryItems = [
   { id: 1, cat: "Wedding", img: PlaceHolderImages.find(i => i.id === "portfolio-wedding-1")?.imageUrl, size: "tall", hint: "indian wedding" },
   { id: 2, cat: "Fashion", img: PlaceHolderImages.find(i => i.id === "portfolio-fashion-1")?.imageUrl, size: "short", hint: "fashion model" },
-  { id: 3, cat: "Product", img: PlaceHolderImages.find(i => i.id === "portfolio-product-1")?.imageUrl, size: "medium", hint: "luxury watch" },
+  { id: 3, cat: "Wedding", img: PlaceHolderImages.find(i => i.id === "wedding-ritual-1")?.imageUrl, size: "tall", hint: "indian ritual" },
   { id: 4, cat: "Maternity", img: PlaceHolderImages.find(i => i.id === "portfolio-maternity-1")?.imageUrl, size: "tall", hint: "maternity portrait" },
   { id: 5, cat: "Baby", img: PlaceHolderImages.find(i => i.id === "portfolio-baby-1")?.imageUrl, size: "short", hint: "baby studio" },
-  { id: 6, cat: "Wedding", img: "https://picsum.photos/seed/wed2/800/1000", size: "medium", hint: "wedding reception" },
+  { id: 6, cat: "Wedding", img: PlaceHolderImages.find(i => i.id === "wedding-bride-1")?.imageUrl, size: "medium", hint: "indian bride" },
   { id: 7, cat: "Fashion", img: "https://picsum.photos/seed/fash2/800/1200", size: "tall", hint: "editorial fashion" },
-  { id: 8, cat: "Product", img: "https://picsum.photos/seed/prod2/800/800", size: "short", hint: "perfume bottle" },
-  { id: 9, cat: "Wedding", img: "https://picsum.photos/seed/wed3/800/1100", size: "tall", hint: "indian bride" },
+  { id: 8, cat: "Product", img: PlaceHolderImages.find(i => i.id === "portfolio-product-1")?.imageUrl, size: "short", hint: "perfume bottle" },
+  { id: 9, cat: "Wedding", img: PlaceHolderImages.find(i => i.id === "wedding-decor-1")?.imageUrl, size: "tall", hint: "indian bride" },
 ];
 
 export default function PortfolioPage() {
-  const [activeTab, setActiveTab] = useState("All");
+  const searchParams = useSearchParams();
+  const initialCategory = searchParams.get("category") || "All";
+  const [activeTab, setActiveTab] = useState(initialCategory);
+
+  useEffect(() => {
+    setActiveTab(initialCategory);
+  }, [initialCategory]);
 
   const filteredItems = activeTab === "All" 
     ? galleryItems 
-    : galleryItems.filter(item => item.cat === activeTab);
+    : galleryItems.filter(item => item.cat.toLowerCase() === activeTab.toLowerCase());
 
   return (
     <div className="pt-32 pb-24 px-6 bg-background">
@@ -45,7 +53,7 @@ export default function PortfolioPage() {
               onClick={() => setActiveTab(cat)}
               className={cn(
                 "px-8 py-3 uppercase tracking-widest text-xs font-semibold border transition-all duration-300",
-                activeTab === cat 
+                activeTab.toLowerCase() === cat.toLowerCase() 
                   ? "bg-primary border-primary text-white" 
                   : "border-border text-muted-foreground hover:border-primary hover:text-primary"
               )}
