@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Camera, MapPin, Phone, Mail, Instagram, Facebook, Twitter } from "lucide-react";
+import { Camera, MapPin, Phone, Mail, Instagram, Facebook, Twitter, Heart } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 export function Footer() {
@@ -21,18 +21,18 @@ export function Footer() {
               Capturing the soul of moments through a luxury cinematic lens. Based in India, serving globally with a focus on high-end weddings and fashion editorials.
             </p>
             <div className="flex gap-6">
-               <a href="https://instagram.com" className="text-primary/60 hover:text-primary transition-colors">
+               <Link href="https://instagram.com" className="text-primary/60 hover:text-primary transition-colors">
                   <span className="sr-only">Instagram</span>
                   <Instagram className="w-6 h-6" />
-               </a>
-               <a href="https://facebook.com" className="text-primary/60 hover:text-primary transition-colors">
+               </Link>
+               <Link href="https://facebook.com" className="text-primary/60 hover:text-primary transition-colors">
                   <span className="sr-only">Facebook</span>
                   <Facebook className="w-6 h-6" />
-               </a>
-               <a href="https://twitter.com" className="text-primary/60 hover:text-primary transition-colors">
+               </Link>
+               <Link href="https://twitter.com" className="text-primary/60 hover:text-primary transition-colors">
                   <span className="sr-only">Twitter</span>
                   <Twitter className="w-6 h-6" />
-               </a>
+               </Link>
             </div>
           </div>
 
@@ -72,7 +72,7 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-4">
                 <Mail className="w-5 h-5 text-primary shrink-0" />
-                <span>hello@samarframer.in</span>
+                <span>hello@eternalframe.in</span>
               </li>
             </ul>
           </div>
@@ -109,19 +109,19 @@ export function Footer() {
         </div>
         
         <div className="max-w-7xl mx-auto pt-12 border-t border-primary/10 flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="text-[10px] text-primary/40 tracking-[0.4em] uppercase font-bold font-sans">
+          <div className="text-[10px] text-primary/40 tracking-[0.4em] uppercase font-bold">
             © {currentYear} Samar Framer Photography Studio. All Rights Reserved.
           </div>
-          <div className="text-[10px] text-primary/60 tracking-[0.5em] uppercase flex items-center gap-3 font-bold group font-sans">
+          <div className="text-[10px] text-primary/60 tracking-[0.5em] uppercase flex items-center gap-3 font-bold group">
             Designed By 
-            <a 
+            <Link 
               href="https://instagram.com/shubham__nema" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-primary font-signature text-3xl lowercase tracking-normal group-hover:text-accent transition-colors"
             >
               Samar
-            </a>
+            </Link>
           </div>
         </div>
       </div>

@@ -57,7 +57,7 @@ export function Navbar() {
           </span>
         </Link>
 
-        {/* Desktop Links - Montserrat Font & Increased Size */}
+        {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-10 lg:gap-12 flex-1 justify-center">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
@@ -66,7 +66,7 @@ export function Navbar() {
                 key={link.name}
                 href={link.href}
                 className={cn(
-                  "font-sans text-sm uppercase tracking-[0.2em] transition-all duration-300 relative py-2 group",
+                  "font-sans text-base uppercase tracking-[0.2em] transition-all duration-300 relative py-2 group",
                   isActive ? "text-primary font-bold" : "text-foreground/70 hover:text-primary"
                 )}
               >
@@ -105,7 +105,6 @@ export function Navbar() {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <>
-            {/* Background Overlay */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
