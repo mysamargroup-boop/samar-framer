@@ -109,10 +109,10 @@
       "imageHint": "abstract background"
     },
     {
-      "id": "studio-interior",
-      "description": "Used in About Page - Studio Interior",
-      "imageUrl": "https://picsum.photos/seed/studio-interior/1000/1250",
-      "imageHint": "photography studio interior"
+      "id": "indian-flag-theme",
+      "description": "Used in About Page - Indian Flag Theme",
+      "imageUrl": "https://picsum.photos/seed/indian-flag-art/1000/1250",
+      "imageHint": "indian flag colors abstract art"
     }
   ]
 }

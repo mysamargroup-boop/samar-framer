@@ -1,0 +1,38 @@
+{
+    "_instruction": "Add or edit blog posts here. The blog page will automatically read from this file.",
+    "posts": [
+        {
+            "id": "capturing-indian-weddings",
+            "title": "The Art of Capturing Grand Indian Weddings",
+            "slug": "capturing-indian-weddings",
+            "author": "Arjun Mehta",
+            "date": "2024-05-12",
+            "category": "Weddings",
+            "imageHint": "indian wedding rituals",
+            "excerpt": "Indian weddings are a beautiful tapestry of rituals, emotions, and grand celebrations. Discover how we capture these unforgettable moments with a luxury cinematic approach.",
+            "content": "Indian weddings are steeped in tradition, and every ritual holds a profound meaning. From the intricate Mehndi designs to the majestic Baraat and the sacred Pheras, these moments pass by in a blur of emotion and joy. As luxury wedding photographers, our goal is to freeze these fleeting instances into cinematic masterpieces. We focus on the unscripted, raw emotions—the stolen glances, the tearful farewells, and the unbridled laughter. By blending editorial fashion photography techniques with candid photojournalism, we ensure that every frame tells a story as unique as the couple themselves. It’s not just about taking pictures; it’s about preserving a legacy."
+        },
+        {
+            "id": "luxury-maternity-shoots",
+            "title": "Why Luxury Maternity Shoots Are Essential",
+            "slug": "luxury-maternity-shoots",
+            "author": "Sanya Gupta",
+            "date": "2024-04-20",
+            "category": "Maternity",
+            "imageHint": "maternity photoshoot",
+            "excerpt": "Pregnancy is a powerful and beautiful transformation. Learn why investing in a luxury maternity shoot allows you to celebrate this journey with the elegance it deserves.",
+            "content": "A woman's journey to motherhood is one of the most incredible transformations in life. A luxury maternity shoot is not just a photographic session; it is an experience designed to celebrate the strength, beauty, and glowing aura of an expectant mother. At Samar Framer, we provide a bespoke experience, from conceptualizing elegant wardrobe choices to curating serene, cinematic sets. We aim to make every mother feel confident, empowered, and absolutely radiant. These portraits become cherished heirlooms, forever reminding families of the magical anticipation that preceded their greatest joy."
+        },
+        {
+            "id": "editorial-fashion-photography",
+            "title": "Editorial vs Commercial Fashion Photography",
+            "slug": "editorial-fashion-photography",
+            "author": "Arjun Mehta",
+            "date": "2024-03-05",
+            "category": "Fashion",
+            "imageHint": "fashion editorial",
+            "excerpt": "A deep dive into the differences between editorial storytelling and commercial fashion photography, and how we blend both for striking brand campaigns.",
+            "content": "The world of fashion photography is broadly divided into two realms: editorial and commercial. While commercial photography focuses on selling a product with clear, well-lit, and straightforward imagery, editorial photography tells a story. Editorial shoots are driven by a creative narrative, often pushing boundaries with dramatic lighting, avant-garde styling, and moody atmospheres. At our studio, we excel at merging the two. We produce commercial campaigns with an editorial edge, ensuring that the imagery not only highlights the product but also captivates the audience with a compelling narrative."
+        }
+    ]
+}

@@ -26,7 +26,7 @@ export default function ContactPage() {
                   <Phone className="w-4 h-4" />
                   <span>Call Us</span>
                 </div>
-                <p className="text-xl font-headline tracking-widest">+91 98765 43210</p>
+                <p className="text-xl font-body">+91 98765 43210</p>
                 <p className="text-muted-foreground text-sm">Mon - Sat: 10AM - 8PM</p>
               </div>
               <div className="space-y-4">
@@ -34,7 +34,7 @@ export default function ContactPage() {
                   <Mail className="w-4 h-4" />
                   <span>Email Us</span>
                 </div>
-                <p className="text-xl font-headline tracking-widest">hello@eternalframe.in</p>
+                <p className="text-xl font-body">hello@eternalframe.in</p>
                 <p className="text-muted-foreground text-sm">Response within 24h</p>
               </div>
               <div className="space-y-4 sm:col-span-2">
@@ -42,7 +42,7 @@ export default function ContactPage() {
                   <MapPin className="w-4 h-4" />
                   <span>Visit Studio</span>
                 </div>
-                <p className="text-xl font-headline tracking-widest leading-relaxed">
+                <p className="text-xl font-body leading-relaxed">
                   Studio 101, Art District, Mumbai, Maharashtra 400001
                 </p>
               </div>
@@ -98,7 +98,9 @@ export default function ContactPage() {
             <MapPin className="w-16 h-16 text-primary mb-6 animate-bounce" />
             <h3 className="text-3xl font-headline tracking-widest mb-4">MUMBAI HQ</h3>
             <p className="text-muted-foreground font-body max-w-sm mx-auto">Click to view our exact location on Google Maps and get directions to our luxury studio space.</p>
-            <Button variant="outline" className="mt-8 border-primary text-primary hover:bg-primary hover:text-white rounded-none">View Full Map</Button>
+            <Button variant="outline" asChild className="mt-8 border-primary text-primary hover:bg-primary hover:text-white rounded-none">
+              <a href="https://maps.google.com/?q=Studio+101,+Art+District,+Mumbai,+Maharashtra+400001" target="_blank" rel="noopener noreferrer">View Full Map</a>
+            </Button>
           </div>
         </div>
       </div>

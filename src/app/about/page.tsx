@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Camera, Heart, Lightbulb, Users } from "lucide-react";
+import { PhotographerStory } from "@/components/sections/photographer-story";
 
 export default function AboutPage() {
   const team = [
@@ -23,16 +24,18 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <PhotographerStory />
+
       {/* Story */}
       <section className="py-24 px-6 bg-card">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
           <div className="relative aspect-[4/5] overflow-hidden rounded-3xl">
             <Image
-              src={PlaceHolderImages.find(i => i.id === "studio-interior")?.imageUrl || ""}
-              alt="Studio Interior"
+              src={PlaceHolderImages.find(i => i.id === "indian-flag-theme")?.imageUrl || ""}
+              alt="Indian Flag Theme Journey"
               fill
               className="object-cover"
-              data-ai-hint="luxury studio"
+              data-ai-hint="indian flag colors abstract art"
             />
           </div>
           <div className="space-y-10">
@@ -42,7 +45,7 @@ export default function AboutPage() {
             </div>
             <div className="space-y-6 text-muted-foreground text-lg font-body leading-relaxed">
               <p>
-                Eternal Frame began as a small passion project in a sun-drenched corner of South Mumbai. Our founder, Arjun Mehta, envisioned a studio where photography wasn't just a service, but a high-art form of preservation.
+                Eternal Frame began as a small passion project in a sun-drenched corner of South Mumbai. Our founder, Samar, envisioned a studio where photography wasn't just a service, but a high-art form of preservation.
               </p>
               <p>
                 Over the last decade, we have evolved into one of India's most sought-after luxury photography brands. Our signature style—dramatic, cinematic, and emotionally raw—has graced high-end weddings, international fashion magazines, and global brand campaigns.

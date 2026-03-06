@@ -3,6 +3,7 @@ import './globals.css';
 import { Navbar } from '@/components/layout/navbar';
 import { Footer } from '@/components/layout/footer';
 import Script from 'next/script';
+import { PageTransition } from '@/components/layout/page-transition';
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://samarframer.com';
 
@@ -65,7 +66,9 @@ export default function RootLayout({
 
         <Navbar />
         <main className="flex-grow">
-          {children}
+          <PageTransition>
+            {children}
+          </PageTransition>
         </main>
         <Footer />
       </body>

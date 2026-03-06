@@ -14,9 +14,10 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 const navLinks = [
-  { name: "Portfolio", href: "/portfolio" },
+  { name: "Gallery", href: "/portfolio" },
   { name: "Packages", href: "/packages" },
   { name: "About", href: "/about" },
+  { name: "Journal", href: "/blog" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -83,13 +84,84 @@ export function Navbar() {
         {/* Desktop Links */}
         <div className="hidden lg:flex items-center gap-8 xl:gap-12">
           {navLinks.map((link) => {
-            const isActive = pathname === link.href;
+            const isActive = pathname === link.href || (link.name === "Gallery" && pathname.startsWith("/portfolio"));
+
+            if (link.name === "Gallery") {
+              return (
+                <div key={link.name} className="relative group py-6">
+                  <Link
+                    href={link.href}
+                    className={cn(
+                      "font-sans text-[13px] uppercase tracking-[0.3em] transition-all duration-300 relative font-bold",
+                      isActive ? "text-primary" : "text-foreground/80 group-hover:text-primary"
+                    )}
+                  >
+                    {link.name}
+                    {isActive && (
+                      <motion.div
+                        layoutId="navUnderline"
+                        className="absolute -bottom-2 left-0 right-0 h-[2px] bg-primary"
+                      />
+                    )}
+                  </Link>
+
+                  {/* Mega Menu Dropdown */}
+                  <div className="absolute top-[80%] left-1/2 -translate-x-1/2 pt-6 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                    <div className="w-[600px] bg-card/95 backdrop-blur-xl border border-primary/20 rounded-2xl p-8 shadow-2xl flex gap-12 relative overflow-hidden">
+                      <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl" />
+                      <div className="flex-1 space-y-6 relative z-10">
+                        <div className="flex items-center gap-3">
+                          <Camera className="w-5 h-5 text-primary" />
+                          <h4 className="text-primary font-headline text-lg tracking-widest uppercase">Cinematic</h4>
+                        </div>
+                        <div className="flex flex-col gap-4">
+                          <Link href="/portfolio?category=Videos" className="text-xs text-muted-foreground hover:text-primary transition-colors tracking-widest uppercase font-bold flex items-center gap-2 group/link">
+                            <span className="w-1.5 h-1.5 rounded-full bg-primary/50 group-hover/link:bg-primary transition-colors" />
+                            Wedding Films
+                          </Link>
+                          <Link href="/portfolio?category=Videos" className="text-xs text-muted-foreground hover:text-primary transition-colors tracking-widest uppercase font-bold flex items-center gap-2 group/link">
+                            <span className="w-1.5 h-1.5 rounded-full bg-primary/50 group-hover/link:bg-primary transition-colors" />
+                            Brand Campaigns
+                          </Link>
+                          <Link href="/portfolio?category=Videos" className="text-xs text-muted-foreground hover:text-primary transition-colors tracking-widest uppercase font-bold flex items-center gap-2 group/link">
+                            <span className="w-1.5 h-1.5 rounded-full bg-primary/50 group-hover/link:bg-primary transition-colors" />
+                            Pre-Wedding Stories
+                          </Link>
+                        </div>
+                      </div>
+                      <div className="w-px bg-border relative z-10"></div>
+                      <div className="flex-1 space-y-6 relative z-10">
+                        <div className="flex items-center gap-3">
+                          <Instagram className="w-5 h-5 text-primary" />
+                          <h4 className="text-primary font-headline text-lg tracking-widest uppercase">Photoshoots</h4>
+                        </div>
+                        <div className="flex flex-col gap-4">
+                          <Link href="/portfolio?category=Wedding" className="text-xs text-muted-foreground hover:text-primary transition-colors tracking-widest uppercase font-bold flex items-center gap-2 group/link">
+                            <span className="w-1.5 h-1.5 rounded-full bg-primary/50 group-hover/link:bg-primary transition-colors" />
+                            Bridal Portraits
+                          </Link>
+                          <Link href="/portfolio?category=Fashion" className="text-xs text-muted-foreground hover:text-primary transition-colors tracking-widest uppercase font-bold flex items-center gap-2 group/link">
+                            <span className="w-1.5 h-1.5 rounded-full bg-primary/50 group-hover/link:bg-primary transition-colors" />
+                            Editorial Fashion
+                          </Link>
+                          <Link href="/portfolio?category=Personal" className="text-xs text-muted-foreground hover:text-primary transition-colors tracking-widest uppercase font-bold flex items-center gap-2 group/link">
+                            <span className="w-1.5 h-1.5 rounded-full bg-primary/50 group-hover/link:bg-primary transition-colors" />
+                            Personal Portraits
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            }
+
             return (
               <Link
                 key={link.name}
                 href={link.href}
                 className={cn(
-                  "font-sans text-[13px] uppercase tracking-[0.3em] transition-all duration-300 relative py-2 group whitespace-nowrap font-bold",
+                  "font-sans text-[13px] uppercase tracking-[0.3em] transition-all duration-300 relative py-6 group whitespace-nowrap font-bold",
                   isActive ? "text-primary" : "text-foreground/80 hover:text-primary"
                 )}
               >
@@ -97,7 +169,7 @@ export function Navbar() {
                 {isActive && (
                   <motion.div
                     layoutId="navUnderline"
-                    className="absolute bottom-0 left-0 right-0 h-[2px] bg-primary"
+                    className="absolute bottom-4 left-0 right-0 h-[2px] bg-primary"
                   />
                 )}
               </Link>
@@ -243,23 +315,52 @@ export function Navbar() {
               </div>
 
               <nav className="flex flex-col gap-0">
-                {navLinks.map((link, idx) => (
-                  <motion.div
-                    key={link.name}
-                    initial={{ opacity: 0, x: 30 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: idx * 0.05 }}
-                  >
-                    <Link
-                      href={link.href}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className="group flex items-center justify-between py-2 text-foreground/60 hover:text-primary transition-colors border-b border-primary/5"
+                {navLinks.map((link, idx) => {
+                  if (link.name === "Gallery") {
+                    return (
+                      <motion.div
+                        key={link.name}
+                        initial={{ opacity: 0, x: 30 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: idx * 0.05 }}
+                        className="py-3 border-b border-primary/5 space-y-4"
+                      >
+                        <div className="flex items-center justify-between">
+                          <Link
+                            href={link.href}
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            className="font-sans font-bold text-sm uppercase tracking-[0.3em] text-foreground/60 hover:text-primary transition-colors"
+                          >
+                            {link.name}
+                          </Link>
+                        </div>
+                        <div className="pl-4 border-l border-primary/20 space-y-4 pb-2">
+                          <Link href="/portfolio?category=Videos" onClick={() => setIsMobileMenuOpen(false)} className="block text-[11px] font-bold uppercase tracking-[0.3em] text-muted-foreground hover:text-primary">Cinematic Films</Link>
+                          <Link href="/portfolio?category=Wedding" onClick={() => setIsMobileMenuOpen(false)} className="block text-[11px] font-bold uppercase tracking-[0.3em] text-muted-foreground hover:text-primary">Weddings</Link>
+                          <Link href="/portfolio?category=Fashion" onClick={() => setIsMobileMenuOpen(false)} className="block text-[11px] font-bold uppercase tracking-[0.3em] text-muted-foreground hover:text-primary">Fashion & Editorial</Link>
+                        </div>
+                      </motion.div>
+                    );
+                  }
+
+                  return (
+                    <motion.div
+                      key={link.name}
+                      initial={{ opacity: 0, x: 30 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: idx * 0.05 }}
                     >
-                      <span className="font-sans font-bold text-sm uppercase tracking-[0.3em]">{link.name}</span>
-                      <ArrowRight className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-all -translate-x-4 group-hover:translate-x-0" />
-                    </Link>
-                  </motion.div>
-                ))}
+                      <Link
+                        href={link.href}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="group flex items-center justify-between py-4 text-foreground/60 hover:text-primary transition-colors border-b border-primary/5"
+                      >
+                        <span className="font-sans font-bold text-sm uppercase tracking-[0.3em]">{link.name}</span>
+                        <ArrowRight className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-all -translate-x-4 group-hover:translate-x-0" />
+                      </Link>
+                    </motion.div>
+                  );
+                })}
               </nav>
 
               <div className="mt-auto pt-10 border-t border-primary/10">
