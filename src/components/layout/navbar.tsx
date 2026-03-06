@@ -1,10 +1,11 @@
+
 "use client";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
-import { Menu, X, Camera, ArrowRight, Calendar, Loader2, Instagram, Facebook, Twitter, Mail, Phone } from "lucide-react";
+import { Menu, X, Camera, ArrowRight, Calendar, Loader2, Instagram, Facebook, Twitter, Mail, Phone, Youtube } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
@@ -19,6 +20,14 @@ const navLinks = [
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
 ];
+
+function TwitterXIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+    </svg>
+  );
+}
 
 export function Navbar() {
   const pathname = usePathname();
@@ -214,14 +223,14 @@ export function Navbar() {
               <div className="mb-8 sm:mb-12">
                 <Dialog>
                   <DialogTrigger asChild>
-                    <Button onClick={() => setIsMobileMenuOpen(false)} className="w-full h-12 text-[10px] font-sans font-bold uppercase tracking-widest bg-primary text-primary-foreground rounded-full shadow-[0_10px_20px_rgba(193,158,95,0.2)]">
+                    <Button onClick={() => setIsMobileMenuOpen(false)} className="w-full h-10 text-[10px] font-sans font-bold uppercase tracking-widest bg-primary text-primary-foreground rounded-full shadow-[0_10px_20px_rgba(193,158,95,0.2)]">
                       Book A Session
                     </Button>
                   </DialogTrigger>
                 </Dialog>
               </div>
 
-              <nav className="flex flex-col gap-2">
+              <nav className="flex flex-col gap-0">
                 {navLinks.map((link, idx) => (
                   <motion.div
                     key={link.name}
@@ -242,41 +251,42 @@ export function Navbar() {
               </nav>
 
               <div className="mt-auto pt-10 border-t border-primary/10">
+                {/* Contact Header with Line */}
+                <div className="mb-8">
+                  <h4 className="text-[10px] uppercase tracking-[0.4em] font-bold text-primary mb-3">Contact</h4>
+                  <div className="h-[1px] w-full bg-primary/10" />
+                </div>
+
                 {/* Contact Info: Sidewise with Divider */}
-                <div className="flex items-center justify-between gap-4 mb-8">
-                   <div className="flex items-center gap-2 text-muted-foreground group flex-1">
-                      <div className="w-8 h-8 rounded-full border border-primary/20 flex items-center justify-center text-primary/60 group-hover:bg-primary group-hover:text-white transition-all">
-                        <Mail size={14} />
+                <div className="flex items-center justify-between gap-2 mb-10 px-1">
+                   <div className="flex items-center gap-3 text-muted-foreground group flex-1">
+                      <div className="w-9 h-9 rounded-full border border-primary/20 flex items-center justify-center text-primary/60 group-hover:bg-primary group-hover:text-white transition-all shrink-0">
+                        <Mail size={16} />
                       </div>
                       <span className="text-[10px] tracking-wider whitespace-nowrap overflow-hidden text-ellipsis">hello@samarframer.com</span>
                    </div>
                    
-                   <div className="w-[1px] h-6 bg-primary/20" />
+                   <div className="w-[1px] h-8 bg-primary/20" />
 
-                   <div className="flex items-center gap-2 text-muted-foreground group flex-1 justify-end">
-                      <div className="w-8 h-8 rounded-full border border-primary/20 flex items-center justify-center text-primary/60 group-hover:bg-primary group-hover:text-white transition-all">
-                        <Phone size={14} />
+                   <div className="flex items-center gap-3 text-muted-foreground group flex-1 justify-end pr-1">
+                      <div className="w-9 h-9 rounded-full border border-primary/20 flex items-center justify-center text-primary/60 group-hover:bg-primary group-hover:text-white transition-all shrink-0">
+                        <Phone size={16} />
                       </div>
                       <span className="text-[10px] tracking-wider whitespace-nowrap">+91 98765 43210</span>
                    </div>
                 </div>
 
                 {/* Social Icons: Below Contact Info */}
-                <div className="flex items-center justify-center gap-6 mb-8">
-                  <a href="#" className="p-3 rounded-full border border-primary/10 hover:bg-primary hover:text-white transition-all text-primary/60">
-                    <Instagram size={18} />
-                  </a>
-                  <a href="#" className="p-3 rounded-full border border-primary/10 hover:bg-primary hover:text-white transition-all text-primary/60">
-                    <Facebook size={18} />
-                  </a>
-                  <a href="#" className="p-3 rounded-full border border-primary/10 hover:bg-primary hover:text-white transition-all text-primary/60">
-                    <Twitter size={18} />
-                  </a>
+                <div className="flex items-center justify-center gap-5 mb-10">
+                  <SocialLink icon={<Instagram size={18} />} />
+                  <SocialLink icon={<Facebook size={18} />} />
+                  <SocialLink icon={<TwitterXIcon />} />
+                  <SocialLink icon={<Youtube size={18} />} />
                 </div>
 
                 <div className="text-center">
-                    <p className="text-[10px] uppercase tracking-[0.5em] text-primary/40 font-bold mb-2">Location</p>
-                    <p className="text-muted-foreground italic font-headline text-lg tracking-widest">Mumbai • Global</p>
+                    <p className="text-[10px] uppercase tracking-[0.5em] text-primary/40 font-bold mb-4">Location</p>
+                    <p className="text-muted-foreground font-signature text-4xl lowercase tracking-normal">Mumbai • Global</p>
                 </div>
               </div>
             </motion.div>
@@ -284,5 +294,13 @@ export function Navbar() {
         )}
       </AnimatePresence>
     </header>
+  );
+}
+
+function SocialLink({ icon }: { icon: React.ReactNode }) {
+  return (
+    <a href="#" className="p-3 rounded-full border border-primary/10 hover:bg-primary hover:text-white transition-all text-primary/60">
+      {icon}
+    </a>
   );
 }

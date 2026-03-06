@@ -1,5 +1,6 @@
+
 import Link from "next/link";
-import { Camera, MapPin, Phone, Mail, Instagram, Facebook, Twitter } from "lucide-react";
+import { Camera, MapPin, Phone, Mail, Instagram, Facebook, Twitter, Youtube } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 export function Footer() {
@@ -32,6 +33,10 @@ export function Footer() {
                <Link href="https://twitter.com" className="text-primary/60 hover:text-primary transition-colors">
                   <span className="sr-only">Twitter</span>
                   <Twitter className="w-6 h-6" />
+               </Link>
+               <Link href="#" className="text-primary/60 hover:text-primary transition-colors">
+                  <span className="sr-only">YouTube</span>
+                  <Youtube className="w-6 h-6" />
                </Link>
             </div>
           </div>
@@ -72,7 +77,7 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-4">
                 <Mail className="w-5 h-5 text-primary shrink-0" />
-                <span>hello@eternalframe.in</span>
+                <span>hello@samarframer.com</span>
               </li>
             </ul>
           </div>
