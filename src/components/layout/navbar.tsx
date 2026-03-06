@@ -28,21 +28,21 @@ export function Navbar() {
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 px-6 sm:px-10 py-6 sm:py-8",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 px-4 sm:px-10 py-6 sm:py-8",
         isScrolled
           ? "bg-background/90 backdrop-blur-xl border-b border-primary/10 py-4 sm:py-5"
           : "bg-transparent"
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2 sm:gap-3 group">
-          <Camera className="w-8 h-8 sm:w-10 h-10 text-primary group-hover:scale-110 transition-transform duration-500" />
-          <span className="font-headline text-xl sm:text-2xl md:text-3xl tracking-[0.15em] sm:tracking-[0.2em] uppercase">
+        <Link href="/" className="flex items-center gap-2 group shrink-0">
+          <Camera className="w-7 h-7 sm:w-10 h-10 text-primary group-hover:scale-110 transition-transform duration-500" />
+          <span className="font-headline text-lg sm:text-2xl lg:text-3xl tracking-[0.1em] sm:tracking-[0.2em] uppercase whitespace-nowrap">
             Eternal <span className="text-primary">Frame</span>
           </span>
         </Link>
 
-        {/* Desktop Links - Adjusted gap for better tablet fit */}
+        {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-6 lg:gap-12">
           {navLinks.map((link) => (
             <Link
@@ -64,7 +64,7 @@ export function Navbar() {
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle menu"
         >
-          {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 

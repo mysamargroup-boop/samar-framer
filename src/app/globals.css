@@ -4,19 +4,19 @@
 
 @layer base {
   :root {
-    --background: 260 9% 6%; /* Deepest Midnight */
+    --background: 260 9% 6%; /* Deepest Midnight Obsidian */
     --foreground: 45 20% 96%; /* Soft Ivory */
     --card: 260 9% 10%;
     --card-foreground: 45 20% 96%;
     --popover: 260 9% 6%;
     --popover-foreground: 45 20% 96%;
-    --primary: 43 45% 61%; /* Royal Gold #C19E5F */
+    --primary: 43 45% 61%; /* Royal Gold */
     --primary-foreground: 260 9% 6%;
     --secondary: 43 15% 15%;
     --secondary-foreground: 45 20% 96%;
     --muted: 260 9% 15%;
     --muted-foreground: 45 10% 65%;
-    --accent: 38 65% 50%; /* Vibrant Golden Accent */
+    --accent: 38 65% 50%; /* Golden Accent */
     --accent-foreground: 45 20% 96%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 45 20% 98%;
@@ -40,17 +40,13 @@
 }
 
 .cinematic-overlay {
-  background: linear-gradient(to bottom, rgba(15, 14, 16, 0) 0%, rgba(15, 14, 16, 0.9) 100%);
+  background: linear-gradient(to bottom, rgba(15, 14, 16, 0) 0%, rgba(15, 14, 16, 0.4) 40%, rgba(15, 14, 16, 0.9) 100%);
 }
 
 .text-gold {
   background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-.gold-border {
-  border: 1px solid rgba(193, 158, 95, 0.3);
 }
 
 .glow-button {
