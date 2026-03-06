@@ -10,7 +10,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        body: ['Manrope', 'sans-serif'],
+        body: ['Poppins', 'sans-serif'],
         headline: ['Cinzel', 'serif'],
         accent: ['"Great Vibes"', 'cursive'],
         signature: ['Allura', 'cursive'],

@@ -61,27 +61,30 @@ export default function PackagesPage() {
       <div className="max-w-7xl mx-auto space-y-24">
         {/* Header */}
         <div className="text-center space-y-6">
-          <h1 className="text-5xl sm:text-6xl md:text-8xl font-headline uppercase tracking-tight">Investment</h1>
+          <h1 className="text-5xl sm:text-6xl md:text-8xl font-headline uppercase tracking-tight">Packages</h1>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto font-body">
             Transparent pricing for timeless memories. Every package is crafted with the same commitment to excellence.
           </p>
         </div>
 
         {/* Standard Packages */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
           {standardPackages.map((pkg, i) => (
             <div 
               key={i} 
-              className={pkg.popular 
-                ? "relative bg-primary p-8 rounded-3xl border border-primary-foreground/20 md:scale-105 z-10 shadow-2xl" 
-                : "bg-card p-8 rounded-3xl border border-border"}
+              className={cn(
+                "flex flex-col h-full rounded-3xl border transition-all duration-500",
+                pkg.popular 
+                  ? "relative bg-primary p-8 border-primary-foreground/20 md:scale-105 z-10 shadow-2xl" 
+                  : "bg-card p-8 border-border"
+              )}
             >
               {pkg.popular && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-accent text-white px-6 py-1 rounded-full text-xs font-bold uppercase tracking-widest">
                   Most Popular
                 </div>
               )}
-              <div className="space-y-6">
+              <div className="flex flex-col flex-grow space-y-6">
                 <div>
                   <h3 className="font-headline text-2xl uppercase tracking-widest mb-2">{pkg.name}</h3>
                   <div className="flex items-baseline gap-1">
@@ -91,7 +94,10 @@ export default function PackagesPage() {
                     {pkg.desc}
                   </p>
                 </div>
-                <div className="space-y-4 pt-6 border-t border-white/10">
+                <div className={cn(
+                  "space-y-4 pt-6 border-t",
+                  pkg.popular ? "border-white/10" : "border-border"
+                )}>
                   {pkg.features.map(feat => (
                     <div key={feat} className="flex items-center gap-3">
                       <Check className={pkg.popular ? "text-white w-4 h-4" : "text-primary w-4 h-4"} />
@@ -99,9 +105,14 @@ export default function PackagesPage() {
                     </div>
                   ))}
                 </div>
-                <Button className={pkg.popular ? "w-full bg-white text-primary hover:bg-white/90" : "w-full bg-primary"}>
-                  Choose {pkg.name}
-                </Button>
+                <div className="mt-auto pt-8">
+                  <Button className={cn(
+                    "w-full uppercase tracking-widest font-bold h-12 rounded-none",
+                    pkg.popular ? "bg-white text-primary hover:bg-white/90" : "bg-primary"
+                  )}>
+                    Choose {pkg.name}
+                  </Button>
+                </div>
               </div>
             </div>
           ))}
@@ -148,7 +159,7 @@ export default function PackagesPage() {
                     className="bg-background"
                   />
                 </div>
-                <Button type="submit" disabled={loading} className="w-full bg-accent hover:bg-accent/90">
+                <Button type="submit" disabled={loading} className="w-full bg-accent hover:bg-accent/90 uppercase tracking-widest font-bold">
                   {loading ? <Loader2 className="animate-spin mr-2" /> : <Sparkles className="mr-2 w-4 h-4" />}
                   Get Recommendation
                 </Button>
@@ -164,7 +175,7 @@ export default function PackagesPage() {
               {loading && (
                 <div className="flex flex-col items-center justify-center gap-4 text-center p-8 sm:p-12">
                    <Loader2 className="w-12 h-12 animate-spin text-primary" />
-                   <p className="text-muted-foreground animate-pulse">Calculating optimal configurations...</p>
+                   <p className="text-muted-foreground animate-pulse uppercase tracking-[0.2em] text-xs">Calculating optimal configurations...</p>
                 </div>
               )}
               {advisorResult && !loading && (
@@ -178,13 +189,13 @@ export default function PackagesPage() {
                       {advisorResult.suggestedPackages.map((pkg, idx) => (
                         <div key={idx} className="space-y-2">
                            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
-                              <h4 className="font-bold text-lg">{pkg.name}</h4>
+                              <h4 className="font-bold text-lg uppercase">{pkg.name}</h4>
                               <span className="text-accent font-headline text-xl">₹{pkg.priceINR.toLocaleString()}</span>
                            </div>
                            <p className="text-sm text-muted-foreground leading-relaxed">
                               {pkg.description}
                            </p>
-                           <p className="text-xs bg-primary/10 p-2 rounded text-primary border border-primary/10">
+                           <p className="text-xs bg-primary/10 p-3 rounded text-primary border border-primary/10">
                               <span className="font-bold">Why:</span> {pkg.reason}
                            </p>
                         </div>
@@ -196,7 +207,7 @@ export default function PackagesPage() {
                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                               {advisorResult.suggestedAddOns.map((addon, i) => (
                                 <div key={i} className="text-xs bg-card p-3 rounded border border-border">
-                                   <div className="font-bold mb-1">{addon.name}</div>
+                                   <div className="font-bold mb-1 text-primary">{addon.name}</div>
                                    <div className="text-muted-foreground">{addon.reason}</div>
                                 </div>
                               ))}
@@ -219,4 +230,8 @@ export default function PackagesPage() {
       </div>
     </div>
   );
+}
+
+function cn(...inputs: any[]) {
+  return inputs.filter(Boolean).join(" ");
 }

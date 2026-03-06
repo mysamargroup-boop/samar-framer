@@ -50,7 +50,7 @@ export function Navbar() {
         initial={false}
         animate={{
           scale: isScrolled ? 0.98 : 1,
-          backgroundColor: isScrolled ? "rgba(10, 10, 12, 0.95)" : "rgba(10, 10, 12, 0.3)",
+          backgroundColor: isScrolled ? "rgba(10, 10, 12, 0.95)" : "rgba(10, 10, 12, 0.4)",
           borderColor: isScrolled ? "rgba(193, 158, 95, 0.3)" : "transparent",
           width: isScrolled ? "min(1200px, 95%)" : "100%",
           y: isScrolled ? 24 : 0,
@@ -81,8 +81,8 @@ export function Navbar() {
                 key={link.name}
                 href={link.href}
                 className={cn(
-                  "font-sans text-[11px] uppercase tracking-[0.3em] transition-all duration-300 relative py-2 group whitespace-nowrap",
-                  isActive ? "text-primary font-bold" : "text-foreground/80 hover:text-primary"
+                  "font-sans text-[13px] uppercase tracking-[0.3em] transition-all duration-300 relative py-2 group whitespace-nowrap font-bold",
+                  isActive ? "text-primary" : "text-foreground/80 hover:text-primary"
                 )}
               >
                 {link.name}
@@ -105,54 +105,56 @@ export function Navbar() {
                 Reserve Now
               </Button>
             </DialogTrigger>
-            <DialogContent className="sm:max-w-[500px] bg-card border-primary/20 p-0 overflow-hidden">
+            <DialogContent className="sm:max-w-[700px] bg-card border-primary/20 p-0 overflow-hidden">
                <motion.div 
-                 initial={{ opacity: 0, y: 20 }}
-                 animate={{ opacity: 1, y: 0 }}
+                 initial={{ opacity: 0, scale: 0.95 }}
+                 animate={{ opacity: 1, scale: 1 }}
                  className="p-10"
                >
                   <DialogHeader className="mb-10 text-center">
-                    <DialogTitle className="font-headline text-4xl text-primary">Begin Your Journey</DialogTitle>
+                    <DialogTitle className="font-headline text-4xl text-primary uppercase">Begin Your Journey</DialogTitle>
                     <p className="text-muted-foreground text-sm font-sans mt-3">Let's craft your eternal visual story together.</p>
                   </DialogHeader>
 
                   {!isBooked ? (
                     <form onSubmit={handleBookingSubmit} className="space-y-6">
-                      <div className="space-y-5">
-                        <div className="grid grid-cols-2 gap-5">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div className="space-y-5">
                           <div className="space-y-2">
                             <Label className="text-[10px] uppercase tracking-widest font-sans text-primary/60">Name</Label>
                             <Input placeholder="Your Name" className="bg-background border-border focus:ring-primary h-12" required />
+                          </div>
+                          <div className="space-y-2">
+                            <Label className="text-[10px] uppercase tracking-widest font-sans text-primary/60">Email</Label>
+                            <Input type="email" placeholder="email@example.com" className="bg-background border-border h-12" required />
                           </div>
                           <div className="space-y-2">
                             <Label className="text-[10px] uppercase tracking-widest font-sans text-primary/60">Contact</Label>
                             <Input placeholder="+91" className="bg-background border-border h-12" required />
                           </div>
                         </div>
-                        <div className="space-y-2">
-                          <Label className="text-[10px] uppercase tracking-widest font-sans text-primary/60">Email</Label>
-                          <Input type="email" placeholder="email@example.com" className="bg-background border-border h-12" required />
-                        </div>
-                        <div className="space-y-2">
-                          <Label className="text-[10px] uppercase tracking-widest font-sans text-primary/60">Shoot Type</Label>
-                          <Select>
-                            <SelectTrigger className="bg-background h-12">
-                              <SelectValue placeholder="Select Category" />
-                            </SelectTrigger>
-                            <SelectContent>
-                              <SelectItem value="wedding">Royal Wedding</SelectItem>
-                              <SelectItem value="fashion">Fashion Editorial</SelectItem>
-                              <SelectItem value="product">Luxury Product</SelectItem>
-                              <SelectItem value="portrait">Creative Portrait</SelectItem>
-                            </SelectContent>
-                          </Select>
-                        </div>
-                        <div className="space-y-2">
-                          <Label className="text-[10px] uppercase tracking-widest font-sans text-primary/60">Vision Details</Label>
-                          <Textarea placeholder="Tell us about your dream project..." className="bg-background border-border resize-none" rows={4} />
+                        <div className="space-y-5">
+                          <div className="space-y-2">
+                            <Label className="text-[10px] uppercase tracking-widest font-sans text-primary/60">Shoot Type</Label>
+                            <Select>
+                              <SelectTrigger className="bg-background h-12">
+                                <SelectValue placeholder="Select Category" />
+                              </SelectTrigger>
+                              <SelectContent>
+                                <SelectItem value="wedding">Royal Wedding</SelectItem>
+                                <SelectItem value="fashion">Fashion Editorial</SelectItem>
+                                <SelectItem value="product">Luxury Product</SelectItem>
+                                <SelectItem value="portrait">Creative Portrait</SelectItem>
+                              </SelectContent>
+                            </Select>
+                          </div>
+                          <div className="space-y-2">
+                            <Label className="text-[10px] uppercase tracking-widest font-sans text-primary/60">Vision Details</Label>
+                            <Textarea placeholder="Tell us about your dream project..." className="bg-background border-border resize-none" rows={4} />
+                          </div>
                         </div>
                       </div>
-                      <Button type="submit" disabled={isBookingLoading} className="w-full bg-primary py-7 text-[10px] uppercase tracking-widest font-bold rounded-full">
+                      <Button type="submit" disabled={isBookingLoading} className="w-full bg-primary py-7 text-[10px] uppercase tracking-widest font-bold rounded-full mt-4">
                         {isBookingLoading ? <Loader2 className="animate-spin" /> : "Request Reservation"}
                       </Button>
                     </form>
@@ -161,9 +163,9 @@ export function Navbar() {
                        <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto text-primary">
                           <Calendar className="w-10 h-10" />
                        </div>
-                       <h3 className="font-headline text-3xl">Inquiry Sent</h3>
+                       <h3 className="font-headline text-3xl uppercase">Inquiry Sent</h3>
                        <p className="text-muted-foreground text-sm font-sans italic">Our luxury consultant will reach out within 24 hours.</p>
-                       <Button onClick={() => setIsBooked(false)} variant="outline" className="mt-6 border-primary text-primary px-10 rounded-full">Done</Button>
+                       <Button onClick={() => setIsBooked(false)} variant="outline" className="mt-6 border-primary text-primary px-10 rounded-full uppercase tracking-widest">Done</Button>
                     </div>
                   )}
                </motion.div>
@@ -221,7 +223,7 @@ export function Navbar() {
                       onClick={() => setIsMobileMenuOpen(false)}
                       className="group flex items-center justify-between text-3xl font-headline uppercase tracking-[0.2em] text-foreground/60 hover:text-primary transition-colors"
                     >
-                      <span className="font-sans font-medium text-lg uppercase tracking-[0.3em]">{link.name}</span>
+                      <span className="font-sans font-bold text-lg uppercase tracking-[0.3em]">{link.name}</span>
                       <ArrowRight className="w-6 h-6 opacity-0 group-hover:opacity-100 transition-all -translate-x-6 group-hover:translate-x-0" />
                     </Link>
                   </motion.div>
@@ -231,7 +233,7 @@ export function Navbar() {
                 
                 <Dialog>
                   <DialogTrigger asChild>
-                    <Button onClick={() => setIsMobileMenuOpen(false)} className="w-full py-6 text-[10px] font-sans font-bold uppercase tracking-widest bg-primary text-primary-foreground rounded-full max-w-[240px] mx-auto h-auto">
+                    <Button onClick={() => setIsMobileMenuOpen(false)} className="w-full py-4 text-[10px] font-sans font-bold uppercase tracking-widest bg-primary text-primary-foreground rounded-full max-w-[200px] mx-auto h-auto">
                       Book A Session
                     </Button>
                   </DialogTrigger>
