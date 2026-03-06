@@ -30,7 +30,7 @@ export default function Home() {
       <section className="py-32 px-6 bg-background overflow-hidden relative">
         <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 -skew-x-12 translate-x-1/2 pointer-events-none" />
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16 lg:gap-24 relative z-10">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -40,7 +40,7 @@ export default function Home() {
             <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border-2 border-primary/20 p-4 bg-card/30 backdrop-blur-sm">
               <div className="relative w-full h-full overflow-hidden rounded-xl">
                 <Image
-                  src="https://picsum.photos/seed/indian-photog/800/1000"
+                  src={PlaceHolderImages.find(i => i.id === "photographer-1")?.imageUrl || ""}
                   alt="Our Lead Artist"
                   fill
                   className="object-cover transition-transform duration-1000 hover:scale-105"
@@ -48,9 +48,9 @@ export default function Home() {
                 />
               </div>
             </div>
-            
+
             {/* Floating Achievement Badge */}
-            <motion.div 
+            <motion.div
               initial={{ scale: 0 }}
               whileInView={{ scale: 1 }}
               viewport={{ once: true }}
@@ -64,7 +64,7 @@ export default function Home() {
             </motion.div>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -73,12 +73,12 @@ export default function Home() {
           >
             <div className="space-y-4">
               <span className="text-primary font-accent text-3xl lg:text-4xl block">The Artistic Journey</span>
-              <h2 className="text-5xl lg:text-7xl font-headline leading-tight">Crafting <br/><span className="text-primary italic">Soulful Frames</span></h2>
+              <h2 className="text-5xl lg:text-7xl font-headline leading-tight">Crafting <br /><span className="text-primary italic">Soulful Frames</span></h2>
             </div>
-            
+
             <div className="space-y-6 text-muted-foreground text-lg leading-relaxed font-body italic">
               <p>
-                Founded on the vibrant streets of Mumbai, Samar Framer is more than a studio—it's a sanctuary for cinematic preservation. 
+                Founded on the vibrant streets of Mumbai, Samar Framer is more than a studio—it's a sanctuary for cinematic preservation.
               </p>
               <p>
                 We specialize in capturing the silent whispers, the raw emotions, and the grand tapestries of Indian heritage through a luxury lens.
@@ -112,7 +112,7 @@ export default function Home() {
       {/* Featured Categories */}
       <section className="py-24 bg-card/50">
         <div className="max-w-7xl mx-auto px-6 mb-20 text-center space-y-4">
-          <motion.span 
+          <motion.span
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -120,7 +120,7 @@ export default function Home() {
           >
             The Collection
           </motion.span>
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -130,7 +130,7 @@ export default function Home() {
             Explore Our Universe
           </motion.h2>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
           {featuredPortfolio.map((item, index) => (
             <motion.div
@@ -167,8 +167,8 @@ export default function Home() {
       <section className="py-32 px-6 bg-background">
         <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-16 lg:gap-20">
           {whyChooseUs.map((feature, i) => (
-            <motion.div 
-              key={i} 
+            <motion.div
+              key={i}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -176,10 +176,10 @@ export default function Home() {
               className="text-center space-y-10 group"
             >
               <div className="mx-auto w-24 h-24 lg:w-32 lg:h-32 rounded-full border border-primary/20 flex items-center justify-center relative overflow-hidden">
-                 <div className="absolute inset-0 bg-primary/5 scale-0 group-hover:scale-100 transition-transform duration-700 rounded-full" />
-                 <div className="relative z-10 transition-transform duration-500 group-hover:scale-110">
-                    {feature.icon}
-                 </div>
+                <div className="absolute inset-0 bg-primary/5 scale-0 group-hover:scale-100 transition-transform duration-700 rounded-full" />
+                <div className="relative z-10 transition-transform duration-500 group-hover:scale-110">
+                  {feature.icon}
+                </div>
               </div>
               <div className="space-y-4">
                 <h3 className="font-headline text-lg lg:text-xl uppercase tracking-[0.4em] text-primary whitespace-nowrap">
@@ -198,16 +198,16 @@ export default function Home() {
       <section className="py-32 bg-card relative overflow-hidden">
         <div className="absolute inset-0 shimmer-effect opacity-30" />
         <div className="max-w-5xl mx-auto px-6 text-center space-y-16 relative z-10">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             className="space-y-4"
           >
-             <span className="text-primary font-accent text-3xl lg:text-4xl">Client Diaries</span>
-             <h2 className="text-4xl lg:text-7xl font-headline uppercase">Voices of Love</h2>
+            <span className="text-primary font-accent text-3xl lg:text-4xl">Client Diaries</span>
+            <h2 className="text-4xl lg:text-7xl font-headline uppercase">Voices of Love</h2>
           </motion.div>
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.98 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -219,8 +219,8 @@ export default function Home() {
               "Working with Samar Framer was the best decision we made for our wedding. They didn't just take photos; they captured the emotions we felt in every moment."
             </p>
             <div>
-               <h4 className="font-headline text-xl lg:text-2xl uppercase tracking-[0.3em] text-primary">Ananya & Rohit</h4>
-               <p className="text-primary/50 text-[10px] lg:text-xs uppercase tracking-[0.5em] mt-3 font-bold font-body">Palace Wedding - Udaipur</p>
+              <h4 className="font-headline text-xl lg:text-2xl uppercase tracking-[0.3em] text-primary">Ananya & Rohit</h4>
+              <p className="text-primary/50 text-[10px] lg:text-xs uppercase tracking-[0.5em] mt-3 font-bold font-body">Palace Wedding - Udaipur</p>
             </div>
           </motion.div>
         </div>
@@ -228,8 +228,8 @@ export default function Home() {
 
       {/* CTA Section */}
       <section className="py-40 px-6 relative overflow-hidden bg-background">
-        <div className="absolute inset-0 opacity-10 bg-[url('https://picsum.photos/seed/texture-gold/1920/1080')] bg-cover mix-blend-screen" />
-        <motion.div 
+        <div className="absolute inset-0 opacity-10 bg-cover mix-blend-screen" style={{ backgroundImage: `url(${PlaceHolderImages.find(i => i.id === 'texture-gold')?.imageUrl || ""})` }} />
+        <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -237,17 +237,17 @@ export default function Home() {
           className="max-w-5xl mx-auto text-center relative z-10 space-y-8 lg:space-y-12"
         >
           <span className="text-primary font-accent text-4xl lg:text-5xl">Your Story Awaits</span>
-          <h2 className="text-2xl lg:text-6xl font-headline leading-tight uppercase">Ready to Create <br/><span className="text-gold italic">Something Eternal?</span></h2>
+          <h2 className="text-2xl lg:text-6xl font-headline leading-tight uppercase">Ready to Create <br /><span className="text-gold italic">Something Eternal?</span></h2>
           <p className="text-muted-foreground text-lg lg:text-xl font-body max-w-2xl mx-auto leading-relaxed italic">
             Book your session today and let's craft an eternal story together. Limited slots available for the upcoming wedding season.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 lg:gap-10 justify-center pt-8">
-             <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-accent px-12 lg:px-16 py-8 lg:py-10 text-lg rounded-full tracking-[0.2em] uppercase font-bold w-full sm:w-auto">
-                <Link href="/booking">Reserve Date</Link>
-             </Button>
-             <Button asChild size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10 px-12 lg:px-16 py-8 lg:py-10 text-lg rounded-full tracking-[0.2em] uppercase font-bold w-full sm:w-auto">
-                <Link href="/contact">Discovery Call</Link>
-             </Button>
+            <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-accent px-12 lg:px-16 py-8 lg:py-10 text-lg rounded-full tracking-[0.2em] uppercase font-bold w-full sm:w-auto">
+              <Link href="/booking">Reserve Date</Link>
+            </Button>
+            <Button asChild size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10 px-12 lg:px-16 py-8 lg:py-10 text-lg rounded-full tracking-[0.2em] uppercase font-bold w-full sm:w-auto">
+              <Link href="/contact">Discovery Call</Link>
+            </Button>
           </div>
         </motion.div>
       </section>

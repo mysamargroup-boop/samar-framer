@@ -2,75 +2,117 @@
   "placeholderImages": [
     {
       "id": "hero-1",
-      "description": "Luxurious Indian Wedding",
+      "description": "Used in Homepage Hero Slider - Luxurious Indian Wedding",
       "imageUrl": "https://picsum.photos/seed/wed-grand/1920/1080",
       "imageHint": "Indian wedding"
     },
     {
       "id": "hero-2",
-      "description": "High Fashion editorial",
+      "description": "Used in Homepage Hero Slider - High Fashion editorial",
       "imageUrl": "https://picsum.photos/seed/fashion1/1920/1080",
       "imageHint": "fashion photography"
     },
     {
       "id": "hero-3",
-      "description": "Premium Product setup",
+      "description": "Used in Homepage Hero Slider - Premium Product setup",
       "imageUrl": "https://picsum.photos/seed/product1/1920/1080",
       "imageHint": "product luxury"
     },
     {
       "id": "portfolio-wedding-1",
-      "description": "Elegant wedding couple",
+      "description": "Used in Portfolio & Homepage Featured - Elegant wedding couple",
       "imageUrl": "https://picsum.photos/seed/pwed1/800/1200",
       "imageHint": "wedding couple"
     },
     {
       "id": "wedding-ritual-1",
-      "description": "Indian Wedding Rituals",
+      "description": "Used in Portfolio & Homepage Featured - Indian Wedding Rituals",
       "imageUrl": "https://picsum.photos/seed/ritual1/800/1200",
       "imageHint": "Indian ritual"
     },
     {
       "id": "wedding-bride-1",
-      "description": "Indian Bridal Portrait",
+      "description": "Used in Portfolio & Homepage Featured - Indian Bridal Portrait",
       "imageUrl": "https://picsum.photos/seed/bride1/800/1200",
       "imageHint": "Indian bride"
     },
     {
       "id": "wedding-decor-1",
-      "description": "Luxury Wedding Decor",
+      "description": "Used in Portfolio - Luxury Wedding Decor",
       "imageUrl": "https://picsum.photos/seed/decor1/800/800",
       "imageHint": "wedding decor"
     },
     {
       "id": "portfolio-fashion-1",
-      "description": "Cinematic fashion shoot",
+      "description": "Used in Portfolio - Cinematic fashion shoot",
       "imageUrl": "https://picsum.photos/seed/pfash1/800/1000",
       "imageHint": "fashion model"
     },
     {
+      "id": "portfolio-fashion-2",
+      "description": "Used in Portfolio - Editorial fashion",
+      "imageUrl": "https://picsum.photos/seed/fash2/800/1200",
+      "imageHint": "editorial fashion"
+    },
+    {
       "id": "portfolio-product-1",
-      "description": "Minimalist watch product",
+      "description": "Used in Portfolio - Minimalist watch product",
       "imageUrl": "https://picsum.photos/seed/pprod1/800/800",
       "imageHint": "watch luxury"
     },
     {
       "id": "portfolio-maternity-1",
-      "description": "Beautiful maternity portrait",
+      "description": "Used in Portfolio - Beautiful maternity portrait",
       "imageUrl": "https://picsum.photos/seed/pmat1/800/1100",
       "imageHint": "maternity shoot"
     },
     {
       "id": "portfolio-baby-1",
-      "description": "Cute baby photoshoot",
+      "description": "Used in Portfolio - Cute baby photoshoot",
       "imageUrl": "https://picsum.photos/seed/pbaby1/800/900",
       "imageHint": "baby studio"
     },
     {
       "id": "photographer-1",
-      "description": "Lead Photographer",
-      "imageUrl": "https://picsum.photos/seed/photog1/600/800",
+      "description": "Used in About Page & Homepage - Lead Photographer",
+      "imageUrl": "https://picsum.photos/seed/indian-photog/800/1000",
       "imageHint": "portrait photographer"
+    },
+    {
+      "id": "texture-gold",
+      "description": "Used in Homepage CTA Background - Gold Texture",
+      "imageUrl": "https://picsum.photos/seed/texture-gold/1920/1080",
+      "imageHint": "gold texture"
+    },
+    {
+      "id": "mumbai-map",
+      "description": "Used in Contact Page - Mumbai Map overlay",
+      "imageUrl": "https://picsum.photos/seed/mumbai-map/1200/450",
+      "imageHint": "mumbai map"
+    },
+    {
+      "id": "team-director",
+      "description": "Used in About Page - Team Member: Sanya Gupta",
+      "imageUrl": "https://picsum.photos/seed/sanya/600/800",
+      "imageHint": "female creative director"
+    },
+    {
+      "id": "team-cinematographer",
+      "description": "Used in About Page - Team Member: Rahul Verma",
+      "imageUrl": "https://picsum.photos/seed/rahul/600/800",
+      "imageHint": "male cinematographer"
+    },
+    {
+      "id": "abstract-bg",
+      "description": "Used in About Page - Abstract Header Background",
+      "imageUrl": "https://picsum.photos/seed/abstract/1920/1080",
+      "imageHint": "abstract background"
+    },
+    {
+      "id": "studio-interior",
+      "description": "Used in About Page - Studio Interior",
+      "imageUrl": "https://picsum.photos/seed/studio-interior/1000/1250",
+      "imageHint": "photography studio interior"
     }
   ]
 }

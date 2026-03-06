@@ -1,7 +1,7 @@
 
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Camera, Home } from "lucide-react";
+import { Home } from "lucide-react";
 
 export default function NotFound() {
   return (
@@ -10,14 +10,9 @@ export default function NotFound() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-primary rounded-full animate-pulse" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-accent rounded-full animate-pulse delay-75" />
       </div>
-      
-      <div className="relative z-10 space-y-4">
-        <div className="flex justify-center mb-8">
-          <div className="p-6 bg-primary/10 rounded-full">
-            <Camera className="w-16 h-16 text-primary" />
-          </div>
-        </div>
-        <h1 className="text-8xl md:text-9xl font-headline tracking-tighter text-primary/20 absolute -top-12 left-1/2 -translate-x-1/2 select-none">
+
+      <div className="relative z-10 space-y-8 mt-12 mb-8">
+        <h1 className="text-[150px] md:text-[250px] font-headline tracking-tighter text-primary drop-shadow-[0_0_40px_rgba(193,158,95,0.6)] leading-none select-none animate-pulse">
           404
         </h1>
         <h2 className="text-4xl md:text-6xl font-headline relative">Frame Not Found</h2>

@@ -1,0 +1,79 @@
+[
+    {
+        "id": 1,
+        "cat": "Wedding",
+        "placeholderId": "portfolio-wedding-1",
+        "size": "tall",
+        "hint": "indian wedding"
+    },
+    {
+        "id": 2,
+        "cat": "Fashion",
+        "placeholderId": "portfolio-fashion-1",
+        "size": "short",
+        "hint": "fashion model"
+    },
+    {
+        "id": 3,
+        "cat": "Wedding",
+        "placeholderId": "wedding-ritual-1",
+        "size": "tall",
+        "hint": "indian ritual"
+    },
+    {
+        "id": 4,
+        "cat": "Maternity",
+        "placeholderId": "portfolio-maternity-1",
+        "size": "tall",
+        "hint": "maternity portrait"
+    },
+    {
+        "id": 5,
+        "cat": "Baby",
+        "placeholderId": "portfolio-baby-1",
+        "size": "short",
+        "hint": "baby studio"
+    },
+    {
+        "id": 6,
+        "cat": "Wedding",
+        "placeholderId": "wedding-bride-1",
+        "size": "medium",
+        "hint": "indian bride"
+    },
+    {
+        "id": 7,
+        "cat": "Fashion",
+        "placeholderId": "portfolio-fashion-2",
+        "size": "tall",
+        "hint": "editorial fashion"
+    },
+    {
+        "id": 8,
+        "cat": "Product",
+        "placeholderId": "portfolio-product-1",
+        "size": "short",
+        "hint": "perfume bottle"
+    },
+    {
+        "id": 9,
+        "cat": "Wedding",
+        "placeholderId": "wedding-decor-1",
+        "size": "tall",
+        "hint": "indian wedding decor"
+    },
+    {
+        "id": 10,
+        "cat": "Videos",
+        "videoUrl": "https://www.youtube.com/embed/aqz-KE-bpKQ",
+        "size": "medium",
+        "hint": "wedding cinematic film"
+    },
+    {
+        "id": 11,
+        "cat": "Videos",
+        "videoUrl": "https://www.youtube.com/embed/ScMzIvxBSi4",
+        "size": "tall",
+        "hint": "fashion campaign film"
+    }
+]

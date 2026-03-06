@@ -1,0 +1,43 @@
+[
+    {
+        "name": "Basic Shoot",
+        "price": "₹9,999",
+        "desc": "Perfect for personal branding or small portrait sessions.",
+        "features": [
+            "2 Hours Session",
+            "20 High-Res Edited Photos",
+            "Single Location",
+            "Online Private Gallery",
+            "1-Week Delivery"
+        ],
+        "popular": false
+    },
+    {
+        "name": "Premium Shoot",
+        "price": "₹24,999",
+        "desc": "Comprehensive coverage for pre-wedding or fashion editorials.",
+        "features": [
+            "5 Hours Session",
+            "50 High-Res Edited Photos",
+            "Multiple Locations",
+            "Makeup Artist Included",
+            "Cinematic Reel (30s)",
+            "Hardbound Photo Book"
+        ],
+        "popular": true
+    },
+    {
+        "name": "Wedding Package",
+        "price": "₹79,999",
+        "desc": "The complete luxury experience for your grand celebration.",
+        "features": [
+            "Full Day Coverage (8 Hours)",
+            "300+ Edited Photos",
+            "Cinematic Film (3-5 mins)",
+            "Two Premium Wedding Albums",
+            "Drone Photography",
+            "Lead Photographer + Assistant"
+        ],
+        "popular": false
+    }
+]

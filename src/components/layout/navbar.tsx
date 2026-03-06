@@ -23,7 +23,7 @@ const navLinks = [
 function TwitterXIcon() {
   return (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+      <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
     </svg>
   );
 }
@@ -114,69 +114,77 @@ export function Navbar() {
               </Button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-[800px] bg-card border-primary/20 p-0 overflow-hidden">
-               <motion.div 
-                 initial={{ opacity: 0, scale: 0.95 }}
-                 animate={{ opacity: 1, scale: 1 }}
-                 className="p-10"
-               >
-                  <DialogHeader className="mb-10 text-center">
-                    <DialogTitle className="font-headline text-4xl text-primary uppercase tracking-widest">Begin Your Journey</DialogTitle>
-                    <p className="text-muted-foreground text-sm font-sans mt-3">Let's craft your eternal visual story together.</p>
-                  </DialogHeader>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="p-10"
+              >
+                <DialogHeader className="mb-10 text-center">
+                  <DialogTitle className="font-headline text-4xl text-primary uppercase tracking-widest">Begin Your Journey</DialogTitle>
+                  <p className="text-muted-foreground text-sm font-sans mt-3">Let's craft your eternal visual story together.</p>
+                </DialogHeader>
 
-                  {!isBooked ? (
-                    <form onSubmit={handleBookingSubmit} className="space-y-6">
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                        <div className="space-y-6">
-                          <div className="space-y-2">
-                            <Label className="text-[10px] uppercase tracking-[0.3em] font-bold text-primary/60">Full Name</Label>
-                            <Input placeholder="Enter your name" className="bg-background border-border focus:ring-primary h-12" required />
-                          </div>
-                          <div className="space-y-2">
-                            <Label className="text-[10px] uppercase tracking-[0.3em] font-bold text-primary/60">Email Address</Label>
-                            <Input type="email" placeholder="email@example.com" className="bg-background border-border h-12" required />
-                          </div>
-                          <div className="space-y-2">
-                            <Label className="text-[10px] uppercase tracking-[0.3em] font-bold text-primary/60">Contact Number</Label>
-                            <Input placeholder="+91" className="bg-background border-border h-12" required />
-                          </div>
+                {!isBooked ? (
+                  <form onSubmit={handleBookingSubmit} className="space-y-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                      <div className="space-y-6">
+                        <div className="space-y-2">
+                          <Label className="text-[10px] uppercase tracking-[0.3em] font-bold text-primary/60">Full Name</Label>
+                          <Input placeholder="Enter your name" className="bg-background border-border focus:ring-primary h-12" required />
                         </div>
-                        <div className="space-y-6">
-                          <div className="space-y-2">
-                            <Label className="text-[10px] uppercase tracking-[0.3em] font-bold text-primary/60">Type of Shoot</Label>
-                            <Select>
-                              <SelectTrigger className="bg-background h-12">
-                                <SelectValue placeholder="Select Category" />
-                              </SelectTrigger>
-                              <SelectContent>
-                                <SelectItem value="wedding">Royal Wedding</SelectItem>
-                                <SelectItem value="fashion">Fashion Editorial</SelectItem>
-                                <SelectItem value="product">Luxury Product</SelectItem>
-                                <SelectItem value="portrait">Creative Portrait</SelectItem>
-                              </SelectContent>
-                            </Select>
-                          </div>
-                          <div className="space-y-2">
-                            <Label className="text-[10px] uppercase tracking-[0.3em] font-bold text-primary/60">Your Vision</Label>
-                            <Textarea placeholder="Tell us about your dream project details..." className="bg-background border-border resize-none" rows={5} />
-                          </div>
+                        <div className="space-y-2">
+                          <Label className="text-[10px] uppercase tracking-[0.3em] font-bold text-primary/60">Email Address</Label>
+                          <Input type="email" placeholder="email@example.com" className="bg-background border-border h-12" required />
+                        </div>
+                        <div className="space-y-2">
+                          <Label className="text-[10px] uppercase tracking-[0.3em] font-bold text-primary/60">Contact Number</Label>
+                          <Input placeholder="+91" className="bg-background border-border h-12" required />
+                        </div>
+                        <div className="space-y-2">
+                          <Label className="text-[10px] uppercase tracking-[0.3em] font-bold text-primary/60">Event Address / Location</Label>
+                          <Input placeholder="City, Venue Details" className="bg-background border-border h-12" required />
                         </div>
                       </div>
-                      <Button type="submit" disabled={isBookingLoading} className="w-full bg-primary py-7 text-[10px] uppercase tracking-widest font-bold rounded-full mt-6 shadow-[0_10px_30px_rgba(193,158,95,0.3)]">
-                        {isBookingLoading ? <Loader2 className="animate-spin" /> : "Request Reservation"}
-                      </Button>
-                    </form>
-                  ) : (
-                    <div className="text-center py-16 space-y-6">
-                       <div className="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center mx-auto text-primary">
-                          <Calendar className="w-12 h-12" />
-                       </div>
-                       <h3 className="font-headline text-3xl uppercase tracking-widest">Inquiry Received</h3>
-                       <p className="text-muted-foreground text-sm font-sans italic max-w-xs mx-auto">Our luxury visual consultant will reach out to you within 24 hours.</p>
-                       <Button onClick={() => setIsBooked(false)} variant="outline" className="mt-8 border-primary text-primary px-12 rounded-full h-12 uppercase tracking-widest font-bold">Close</Button>
+                      <div className="space-y-6">
+                        <div className="space-y-2">
+                          <Label className="text-[10px] uppercase tracking-[0.3em] font-bold text-primary/60">Type of Shoot</Label>
+                          <Select>
+                            <SelectTrigger className="bg-background h-12">
+                              <SelectValue placeholder="Select Category" />
+                            </SelectTrigger>
+                            <SelectContent>
+                              <SelectItem value="wedding">Royal Wedding</SelectItem>
+                              <SelectItem value="fashion">Fashion Editorial</SelectItem>
+                              <SelectItem value="product">Luxury Product</SelectItem>
+                              <SelectItem value="portrait">Creative Portrait</SelectItem>
+                            </SelectContent>
+                          </Select>
+                        </div>
+                        <div className="space-y-2">
+                          <Label className="text-[10px] uppercase tracking-[0.3em] font-bold text-primary/60">Your Vision</Label>
+                          <Textarea placeholder="Tell us about your dream project details..." className="bg-background border-border resize-none" rows={3} />
+                        </div>
+                        <div className="space-y-2">
+                          <Label className="text-[10px] uppercase tracking-[0.3em] font-bold text-primary/60">Specific Requirements</Label>
+                          <Textarea placeholder="Any particular needs? (Drones, multiple days, specific themes)" className="bg-background border-border resize-none" rows={3} />
+                        </div>
+                      </div>
                     </div>
-                  )}
-               </motion.div>
+                    <Button type="submit" disabled={isBookingLoading} className="w-full bg-primary hover:bg-accent py-7 text-[10px] uppercase tracking-widest font-bold rounded-full mt-6 shadow-[0_10px_30px_rgba(193,158,95,0.3)] transition-all">
+                      {isBookingLoading ? <Loader2 className="animate-spin" /> : "Request Reservation"}
+                    </Button>
+                  </form>
+                ) : (
+                  <div className="text-center py-16 space-y-6">
+                    <div className="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center mx-auto text-primary">
+                      <Calendar className="w-12 h-12" />
+                    </div>
+                    <h3 className="font-headline text-3xl uppercase tracking-widest">Inquiry Received</h3>
+                    <p className="text-muted-foreground text-sm font-sans italic max-w-xs mx-auto">Our luxury visual consultant will reach out to you within 24 hours.</p>
+                    <Button onClick={() => setIsBooked(false)} variant="outline" className="mt-8 border-primary text-primary px-12 rounded-full h-12 uppercase tracking-widest font-bold">Close</Button>
+                  </div>
+                )}
+              </motion.div>
             </DialogContent>
           </Dialog>
         </div>
@@ -260,11 +268,11 @@ export function Navbar() {
                   <div className="space-y-4">
                     <div className="flex items-center gap-2 text-muted-foreground group">
                       <Mail size={14} className="text-primary/60 group-hover:text-primary transition-colors" />
-                      <span className="text-[10px] tracking-wider whitespace-nowrap overflow-hidden text-ellipsis">hello@samarframer.com</span>
+                      <span className="text-[10px] tracking-wider whitespace-nowrap overflow-hidden text-ellipsis">{process.env.NEXT_PUBLIC_CONTACT_EMAIL || "hello@samarframer.com"}</span>
                     </div>
                     <div className="flex items-center gap-2 text-muted-foreground group">
                       <Phone size={14} className="text-primary/60 group-hover:text-primary transition-colors" />
-                      <span className="text-[10px] tracking-wider whitespace-nowrap">+91 98765 43210</span>
+                      <span className="text-[10px] tracking-wider whitespace-nowrap">{process.env.NEXT_PUBLIC_CONTACT_PHONE || "+91 98765 43210"}</span>
                     </div>
                   </div>
 
@@ -278,7 +286,7 @@ export function Navbar() {
                 </div>
 
                 <div className="text-center pt-8 mt-6 border-t border-primary/5">
-                    <p className="text-muted-foreground font-signature text-3xl lowercase tracking-normal">Mumbai • Global</p>
+                  <p className="text-muted-foreground font-signature text-3xl lowercase tracking-normal">Mumbai • Global</p>
                 </div>
               </div>
             </motion.div>

@@ -5,7 +5,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 function TwitterXIcon() {
   return (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+      <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
     </svg>
   );
 }
@@ -29,22 +29,22 @@ export function Footer() {
               Capturing the soul of moments through a luxury cinematic lens. Based in India, serving globally with a focus on high-end weddings and fashion editorials.
             </p>
             <div className="flex gap-6">
-               <Link href="https://instagram.com" className="text-primary/60 hover:text-primary transition-colors">
-                  <span className="sr-only">Instagram</span>
-                  <Instagram className="w-6 h-6" />
-               </Link>
-               <Link href="https://facebook.com" className="text-primary/60 hover:text-primary transition-colors">
-                  <span className="sr-only">Facebook</span>
-                  <Facebook className="w-6 h-6" />
-               </Link>
-               <Link href="#" className="text-primary/60 hover:text-primary transition-colors">
-                  <span className="sr-only">Twitter (X)</span>
-                  <TwitterXIcon />
-               </Link>
-               <Link href="#" className="text-primary/60 hover:text-primary transition-colors">
-                  <span className="sr-only">YouTube</span>
-                  <Youtube className="w-6 h-6" />
-               </Link>
+              <Link href="https://instagram.com" className="text-primary/60 hover:text-primary transition-colors">
+                <span className="sr-only">Instagram</span>
+                <Instagram className="w-6 h-6" />
+              </Link>
+              <Link href="https://facebook.com" className="text-primary/60 hover:text-primary transition-colors">
+                <span className="sr-only">Facebook</span>
+                <Facebook className="w-6 h-6" />
+              </Link>
+              <Link href="#" className="text-primary/60 hover:text-primary transition-colors">
+                <span className="sr-only">Twitter (X)</span>
+                <TwitterXIcon />
+              </Link>
+              <Link href="#" className="text-primary/60 hover:text-primary transition-colors">
+                <span className="sr-only">YouTube</span>
+                <Youtube className="w-6 h-6" />
+              </Link>
             </div>
           </div>
 
@@ -78,15 +78,15 @@ export function Footer() {
             <ul className="space-y-6 text-sm text-muted-foreground font-body">
               <li className="flex items-start gap-4">
                 <MapPin className="w-5 h-5 text-primary shrink-0" />
-                <span className="leading-relaxed italic">Studio 101, Art District, Mumbai, Maharashtra 400001, India</span>
+                <span className="leading-relaxed italic">{process.env.NEXT_PUBLIC_CONTACT_ADDRESS || "Studio 101, Art District, Mumbai, Maharashtra 400001, India"}</span>
               </li>
               <li className="flex items-center gap-4">
                 <Phone className="w-5 h-5 text-primary shrink-0" />
-                <span>+91 98765 43210</span>
+                <span>{process.env.NEXT_PUBLIC_CONTACT_PHONE || "+91 98765 43210"}</span>
               </li>
               <li className="flex items-center gap-4">
                 <Mail className="w-5 h-5 text-primary shrink-0" />
-                <span>hello@samarframer.com</span>
+                <span>{process.env.NEXT_PUBLIC_CONTACT_EMAIL || "hello@samarframer.com"}</span>
               </li>
             </ul>
           </div>
@@ -121,16 +121,16 @@ export function Footer() {
             </Accordion>
           </div>
         </div>
-        
+
         <div className="max-w-7xl mx-auto pt-12 border-t border-primary/10 flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="text-[10px] text-primary/40 tracking-[0.4em] uppercase font-bold font-sans">
             © {currentYear} Samar Framer Photography Studio. All Rights Reserved.
           </div>
           <div className="text-[10px] text-primary/60 tracking-[0.5em] uppercase flex items-center gap-3 font-bold font-sans group">
-            Designed By 
-            <Link 
-              href="https://instagram.com/shubham__nema" 
-              target="_blank" 
+            Designed By
+            <Link
+              href="https://instagram.com/shubham__nema"
+              target="_blank"
               rel="noopener noreferrer"
               className="text-primary font-signature text-4xl lowercase tracking-normal group-hover:text-accent transition-colors px-2"
             >

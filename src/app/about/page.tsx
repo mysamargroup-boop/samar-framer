@@ -5,15 +5,15 @@ import { Camera, Heart, Lightbulb, Users } from "lucide-react";
 export default function AboutPage() {
   const team = [
     { name: "Arjun Mehta", role: "Founder & Lead Photographer", image: PlaceHolderImages.find(i => i.id === "photographer-1")?.imageUrl },
-    { name: "Sanya Gupta", role: "Creative Director", image: "https://picsum.photos/seed/sanya/600/800" },
-    { name: "Rahul Verma", role: "Cinematographer", image: "https://picsum.photos/seed/rahul/600/800" },
+    { name: "Sanya Gupta", role: "Creative Director", image: PlaceHolderImages.find(i => i.id === "team-director")?.imageUrl },
+    { name: "Rahul Verma", role: "Cinematographer", image: PlaceHolderImages.find(i => i.id === "team-cinematographer")?.imageUrl },
   ];
 
   return (
     <div className="bg-background">
       {/* Hero */}
       <section className="pt-48 pb-24 px-6 text-center space-y-8 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-[url('https://picsum.photos/seed/abstract/1920/1080')] bg-cover" />
+        <div className="absolute inset-0 opacity-10 bg-cover" style={{ backgroundImage: `url(${PlaceHolderImages.find(i => i.id === 'abstract-bg')?.imageUrl || ""})` }} />
         <div className="relative z-10 max-w-4xl mx-auto space-y-6">
           <span className="text-accent uppercase tracking-[0.4em] text-sm font-bold">Established 2012</span>
           <h1 className="text-6xl md:text-8xl font-headline tracking-tighter leading-tight">The Vision Behind The Frame</h1>
@@ -28,7 +28,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
           <div className="relative aspect-[4/5] overflow-hidden rounded-3xl">
             <Image
-              src="https://picsum.photos/seed/studio-interior/1000/1250"
+              src={PlaceHolderImages.find(i => i.id === "studio-interior")?.imageUrl || ""}
               alt="Studio Interior"
               fill
               className="object-cover"
@@ -52,14 +52,14 @@ export default function AboutPage() {
               </p>
             </div>
             <div className="grid grid-cols-2 gap-8">
-               <div className="space-y-2">
-                  <h4 className="font-headline text-3xl text-primary">500+</h4>
-                  <p className="text-xs uppercase tracking-widest">Weddings Captured</p>
-               </div>
-               <div className="space-y-2">
-                  <h4 className="font-headline text-3xl text-primary">24</h4>
-                  <p className="text-xs uppercase tracking-widest">Global Awards</p>
-               </div>
+              <div className="space-y-2">
+                <h4 className="font-headline text-3xl text-primary">500+</h4>
+                <p className="text-xs uppercase tracking-widest">Weddings Captured</p>
+              </div>
+              <div className="space-y-2">
+                <h4 className="font-headline text-3xl text-primary">24</h4>
+                <p className="text-xs uppercase tracking-widest">Global Awards</p>
+              </div>
             </div>
           </div>
         </div>
@@ -88,8 +88,8 @@ export default function AboutPage() {
       <section className="py-24 px-6 bg-card border-t border-border">
         <div className="max-w-7xl mx-auto space-y-16">
           <div className="text-center space-y-4">
-             <h2 className="text-5xl font-headline">The Artists</h2>
-             <p className="text-muted-foreground tracking-widest uppercase text-sm">Passionate hearts behind the lens</p>
+            <h2 className="text-5xl font-headline">The Artists</h2>
+            <p className="text-muted-foreground tracking-widest uppercase text-sm">Passionate hearts behind the lens</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {team.map((member, i) => (
