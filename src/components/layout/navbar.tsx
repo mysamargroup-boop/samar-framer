@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
-import { Menu, X, Camera } from "lucide-react";
+import { Menu, X, Camera, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -35,10 +35,10 @@ export function Navbar() {
         animate={{
           y: isScrolled ? 20 : 0,
           scale: isScrolled ? 0.95 : 1,
-          backgroundColor: isScrolled ? "rgba(10, 10, 12, 0.95)" : "rgba(10, 10, 12, 0)",
-          borderColor: isScrolled ? "rgba(193, 158, 95, 0.2)" : "rgba(193, 158, 95, 0)",
+          backgroundColor: isScrolled ? "rgba(10, 10, 12, 0.98)" : "rgba(10, 10, 12, 0)",
+          borderColor: isScrolled ? "rgba(193, 158, 95, 0.3)" : "rgba(193, 158, 95, 0)",
           borderWidth: isScrolled ? "1px" : "0px",
-          width: isScrolled ? "90%" : "100%",
+          width: isScrolled ? (window?.innerWidth < 768 ? "94%" : "90%") : "100%",
           borderRadius: isScrolled ? "100px" : "0px",
         }}
         transition={{ type: "spring", damping: 20, stiffness: 100 }}
@@ -53,8 +53,8 @@ export function Navbar() {
           </span>
         </Link>
 
-        {/* Desktop Links */}
-        <div className="hidden md:flex items-center gap-8 lg:gap-12 flex-1 justify-center">
+        {/* Desktop Links - Increased font size */}
+        <div className="hidden md:flex items-center gap-8 lg:gap-10 flex-1 justify-center">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
@@ -62,7 +62,7 @@ export function Navbar() {
                 key={link.name}
                 href={link.href}
                 className={cn(
-                  "font-sans text-[10px] uppercase tracking-[0.2em] transition-all duration-300 relative py-2 group",
+                  "font-sans text-xs uppercase tracking-[0.2em] transition-all duration-300 relative py-2 group",
                   isActive ? "text-primary font-bold" : "text-foreground/70 hover:text-primary"
                 )}
               >
@@ -97,7 +97,7 @@ export function Navbar() {
         </button>
       </motion.div>
 
-      {/* Sub Menu Drawer (Mobile/Tablet) */}
+      {/* Sub Menu Drawer (Mobile/Tablet) - Sidewise Cinematic Style */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -105,48 +105,68 @@ export function Navbar() {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 30, stiffness: 200 }}
-            className="fixed inset-y-0 right-0 w-full sm:w-[400px] bg-background/95 backdrop-blur-2xl border-l border-primary/20 z-[60] shadow-2xl flex flex-col p-12 md:hidden pointer-events-auto"
+            className="fixed inset-y-0 right-0 w-full sm:w-[450px] bg-background/95 backdrop-blur-3xl border-l border-primary/20 z-[60] shadow-[0_0_50px_rgba(0,0,0,0.5)] flex flex-col p-12 md:hidden pointer-events-auto"
           >
-            <div className="flex justify-between items-center mb-20">
+            <div className="flex justify-between items-center mb-16">
               <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-2">
                 <Camera className="w-8 h-8 text-primary" />
                 <span className="font-headline text-xl tracking-widest uppercase">Eternal <span className="text-primary">Frame</span></span>
               </Link>
-              <button onClick={() => setIsMobileMenuOpen(false)} className="text-primary p-2">
+              <button onClick={() => setIsMobileMenuOpen(false)} className="text-primary p-2 hover:rotate-90 transition-transform duration-300">
                 <X size={32} />
               </button>
             </div>
 
-            <nav className="flex flex-col gap-8">
-              {navLinks.map((link) => {
+            <nav className="flex flex-col gap-6">
+              {navLinks.map((link, idx) => {
                 const isActive = pathname === link.href;
                 return (
-                  <Link
+                  <motion.div
                     key={link.name}
-                    href={link.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className={cn(
-                      "text-3xl font-headline uppercase tracking-widest transition-colors",
-                      isActive ? "text-primary" : "text-foreground/60 hover:text-primary"
-                    )}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: idx * 0.1 + 0.2 }}
                   >
-                    {link.name}
-                  </Link>
+                    <Link
+                      href={link.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className={cn(
+                        "group flex items-center justify-between text-4xl font-headline uppercase tracking-widest transition-colors",
+                        isActive ? "text-primary" : "text-foreground/60 hover:text-primary"
+                      )}
+                    >
+                      <span>{link.name}</span>
+                      <ArrowRight className="w-8 h-8 opacity-0 group-hover:opacity-100 transition-all -translate-x-4 group-hover:translate-x-0" />
+                    </Link>
+                  </motion.div>
                 );
               })}
-              <div className="h-px bg-primary/10 my-4" />
-              <Button asChild onClick={() => setIsMobileMenuOpen(false)} className="py-10 text-xl font-headline uppercase tracking-[0.3em] rounded-full bg-primary text-primary-foreground shadow-xl">
-                <Link href="/booking">Book a Session</Link>
-              </Button>
+              <div className="h-px bg-primary/20 my-8" />
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.6 }}
+              >
+                <Button asChild onClick={() => setIsMobileMenuOpen(false)} className="w-full py-12 text-2xl font-headline uppercase tracking-[0.3em] rounded-none bg-primary text-primary-foreground shadow-2xl hover:bg-accent transition-colors">
+                  <Link href="/booking">Book a Session</Link>
+                </Button>
+              </motion.div>
             </nav>
 
-            <div className="mt-auto space-y-6 pt-12 border-t border-primary/10">
-              <p className="text-xs uppercase tracking-[0.4em] text-primary/50 font-bold font-sans">Studio HQ</p>
+            <div className="mt-auto space-y-8 pt-12 border-t border-primary/20">
+              <div className="space-y-4">
+                 <p className="text-xs uppercase tracking-[0.5em] text-primary/60 font-bold font-sans">Connect With Us</p>
+                 <div className="flex gap-8 text-foreground/60">
+                    <a href="#" className="hover:text-primary transition-colors uppercase text-[10px] tracking-[0.3em] font-bold">Instagram</a>
+                    <a href="#" className="hover:text-primary transition-colors uppercase text-[10px] tracking-[0.3em] font-bold">Vimeo</a>
+                 </div>
+              </div>
               <p className="text-muted-foreground italic font-body text-lg">Studio 101, Art District, Mumbai</p>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
+
       {/* Overlay for Drawer */}
       <AnimatePresence>
         {isMobileMenuOpen && (
