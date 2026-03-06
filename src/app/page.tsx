@@ -26,9 +26,10 @@ export default function Home() {
     <div className="space-y-0">
       <HeroSlider />
 
-      {/* About Section */}
-      <section className="py-24 px-6 bg-background overflow-hidden">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 lg:gap-20">
+      {/* Enhanced Our Story Section */}
+      <section className="py-32 px-6 bg-background overflow-hidden relative">
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 -skew-x-12 translate-x-1/2 pointer-events-none" />
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16 lg:gap-24 relative z-10">
           <motion.div 
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -36,52 +37,79 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="w-full md:w-1/2 relative"
           >
-            <div className="aspect-[4/5] relative overflow-hidden rounded-sm border border-primary/30">
-              <Image
-                src={PlaceHolderImages.find(i => i.id === 'photographer-1')?.imageUrl || ""}
-                alt="Our Founder"
-                fill
-                className="object-cover transition-transform duration-1000 hover:scale-105"
-                data-ai-hint="portrait photographer"
-              />
+            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border-2 border-primary/20 p-4 bg-card/30 backdrop-blur-sm">
+              <div className="relative w-full h-full overflow-hidden rounded-xl">
+                <Image
+                  src="https://picsum.photos/seed/indian-photog/800/1000"
+                  alt="Our Lead Artist"
+                  fill
+                  className="object-cover transition-transform duration-1000 hover:scale-105"
+                  data-ai-hint="indian photographer"
+                />
+              </div>
             </div>
-            <div className="absolute -bottom-8 -right-4 lg:-right-8 bg-card border border-primary/30 p-6 lg:p-10 rounded-sm hidden sm:block animate-float shadow-2xl">
-              <span className="font-headline text-4xl lg:text-6xl block text-primary">12+</span>
-              <span className="text-primary/70 text-[10px] lg:text-xs uppercase tracking-[0.3em] font-bold">Years of Excellence</span>
-            </div>
+            
+            {/* Floating Achievement Badge */}
+            <motion.div 
+              initial={{ scale: 0 }}
+              whileInView={{ scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5, type: "spring" }}
+              className="absolute -bottom-10 -right-4 md:-right-10 bg-primary text-primary-foreground p-8 rounded-3xl shadow-[0_20px_50px_rgba(193,158,95,0.4)] border-4 border-background animate-float"
+            >
+              <div className="text-center">
+                <span className="font-headline text-5xl block mb-1">12+</span>
+                <span className="text-[10px] uppercase tracking-[0.3em] font-bold">Years of Artistry</span>
+              </div>
+            </motion.div>
           </motion.div>
+
           <motion.div 
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="w-full md:w-1/2 space-y-8 lg:space-y-10"
+            className="w-full md:w-1/2 space-y-10"
           >
             <div className="space-y-4">
-              <span className="text-primary font-accent text-2xl lg:text-3xl">Our Story</span>
-              <h2 className="text-4xl lg:text-7xl font-headline leading-tight">Capturing Life's <br/><span className="text-primary italic">Eternal Frames</span></h2>
+              <span className="text-primary font-accent text-3xl lg:text-4xl block">The Artistic Journey</span>
+              <h2 className="text-5xl lg:text-7xl font-headline leading-tight">Crafting <br/><span className="text-primary italic">Soulful Frames</span></h2>
             </div>
-            <p className="text-muted-foreground text-lg lg:text-xl leading-relaxed font-body italic">
-              Founded on the belief that every moment holds an eternal secret, Samar Framer has spent over a decade perfecting the art of cinematic storytelling.
-            </p>
-            <div className="space-y-5">
-              {['Cinematic Storytelling', 'High-End Editorial Post-Processing', 'Bespoke Client Experience'].map((item) => (
-                <div key={item} className="flex items-center gap-4">
-                  <div className="w-8 h-8 rounded-full border border-primary/40 flex items-center justify-center shrink-0">
-                    <Check className="w-4 h-4 text-primary" />
+            
+            <div className="space-y-6 text-muted-foreground text-lg leading-relaxed font-body italic">
+              <p>
+                Founded on the vibrant streets of Mumbai, Samar Framer is more than a studio—it's a sanctuary for cinematic preservation. 
+              </p>
+              <p>
+                We specialize in capturing the silent whispers, the raw emotions, and the grand tapestries of Indian heritage through a luxury lens.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
+              {[
+                { title: 'Cinematic Visuals', desc: 'Editorial grade storytelling' },
+                { title: 'Luxury Post-Pro', desc: 'Expert retouching & grading' }
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-4 p-4 rounded-xl bg-card/50 border border-border">
+                  <div className="w-10 h-10 rounded-full border border-primary/40 flex items-center justify-center shrink-0">
+                    <Check className="w-5 h-5 text-primary" />
                   </div>
-                  <span className="text-[10px] lg:text-xs uppercase tracking-[0.2em] font-bold text-foreground/80">{item}</span>
+                  <div>
+                    <h4 className="text-xs font-bold uppercase tracking-widest text-foreground">{item.title}</h4>
+                    <p className="text-[10px] text-muted-foreground mt-1">{item.desc}</p>
+                  </div>
                 </div>
               ))}
             </div>
-            <Button asChild size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-none px-8 lg:px-10 py-6 lg:py-8 text-sm lg:text-lg uppercase tracking-widest glow-button w-full sm:w-auto">
-              <Link href="/about">The Studio Legacy</Link>
+
+            <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-accent rounded-full px-12 py-8 text-sm uppercase tracking-widest font-bold shadow-xl transition-all duration-500 hover:scale-105">
+              <Link href="/about">Discover The Legacy</Link>
             </Button>
           </motion.div>
         </div>
       </section>
 
-      {/* Featured Categories - 3 COLUMN LAYOUT */}
+      {/* Featured Categories */}
       <section className="py-24 bg-card/50">
         <div className="max-w-7xl mx-auto px-6 mb-20 text-center space-y-4">
           <motion.span 
@@ -135,7 +163,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why Choose Us - UPDATED DESIGN MATCHING IMAGE */}
+      {/* Why Choose Us */}
       <section className="py-32 px-6 bg-background">
         <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-16 lg:gap-20">
           {whyChooseUs.map((feature, i) => (
@@ -192,7 +220,7 @@ export default function Home() {
             </p>
             <div>
                <h4 className="font-headline text-xl lg:text-2xl uppercase tracking-[0.3em] text-primary">Ananya & Rohit</h4>
-               <p className="text-primary/50 text-[10px] lg:text-xs uppercase tracking-[0.5em] mt-3 font-bold">Palace Wedding - Udaipur</p>
+               <p className="text-primary/50 text-[10px] lg:text-xs uppercase tracking-[0.5em] mt-3 font-bold font-body">Palace Wedding - Udaipur</p>
             </div>
           </motion.div>
         </div>
@@ -209,15 +237,15 @@ export default function Home() {
           className="max-w-5xl mx-auto text-center relative z-10 space-y-8 lg:space-y-12"
         >
           <span className="text-primary font-accent text-4xl lg:text-5xl">Your Story Awaits</span>
-          <h2 className="text-4xl lg:text-8xl font-headline leading-tight uppercase">Ready to Create <br/><span className="text-gold italic">Something Eternal?</span></h2>
-          <p className="text-muted-foreground text-lg lg:text-2xl font-body max-w-3xl mx-auto leading-relaxed italic">
+          <h2 className="text-3xl lg:text-6xl font-headline leading-tight uppercase">Ready to Create <br/><span className="text-gold italic">Something Eternal?</span></h2>
+          <p className="text-muted-foreground text-lg lg:text-xl font-body max-w-2xl mx-auto leading-relaxed italic">
             Book your session today and let's craft an eternal story together. Limited slots available for the upcoming wedding season.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 lg:gap-10 justify-center pt-8">
-             <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-accent px-12 lg:px-16 py-8 lg:py-10 text-lg lg:text-xl rounded-none tracking-[0.2em] lg:tracking-[0.3em] uppercase glow-button font-bold w-full sm:w-auto">
+             <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-accent px-12 lg:px-16 py-8 lg:py-10 text-lg rounded-full tracking-[0.2em] uppercase font-bold w-full sm:w-auto">
                 <Link href="/booking">Reserve Date</Link>
              </Button>
-             <Button asChild size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10 px-12 lg:px-16 py-8 lg:py-10 text-lg lg:text-xl rounded-none tracking-[0.2em] lg:tracking-[0.3em] uppercase font-bold w-full sm:w-auto">
+             <Button asChild size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10 px-12 lg:px-16 py-8 lg:py-10 text-lg rounded-full tracking-[0.2em] uppercase font-bold w-full sm:w-auto">
                 <Link href="/contact">Discovery Call</Link>
              </Button>
           </div>
