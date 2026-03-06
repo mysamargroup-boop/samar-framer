@@ -21,8 +21,8 @@ export function Footer() {
           <div className="col-span-1 md:col-span-1 space-y-8">
             <Link href="/" className="flex items-center gap-3 group">
               <Camera className="w-8 h-8 text-primary group-hover:scale-110 transition-transform" />
-              <span className="font-accent text-4xl tracking-normal normal-case text-primary">
-                Gistesy
+              <span className="font-headline text-3xl tracking-widest uppercase">
+                <span className="text-primary">Samar</span> <span className="text-white">Framer</span>
               </span>
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed font-body italic">
@@ -37,7 +37,7 @@ export function Footer() {
                   <span className="sr-only">Facebook</span>
                   <Facebook className="w-6 h-6" />
                </Link>
-               <Link href="https://twitter.com" className="text-primary/60 hover:text-primary transition-colors">
+               <Link href="#" className="text-primary/60 hover:text-primary transition-colors">
                   <span className="sr-only">Twitter (X)</span>
                   <TwitterXIcon />
                </Link>
@@ -84,7 +84,7 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-4">
                 <Mail className="w-5 h-5 text-primary shrink-0" />
-                <span>hello@gistesy.com</span>
+                <span>hello@samarframer.com</span>
               </li>
             </ul>
           </div>
@@ -122,7 +122,7 @@ export function Footer() {
         
         <div className="max-w-7xl mx-auto pt-12 border-t border-primary/10 flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="text-[10px] text-primary/40 tracking-[0.4em] uppercase font-bold font-sans">
-            © {currentYear} Gistesy Photography Studio. All Rights Reserved.
+            © {currentYear} Samar Framer Photography Studio. All Rights Reserved.
           </div>
           <div className="text-[10px] text-primary/60 tracking-[0.5em] uppercase flex items-center gap-3 font-bold font-sans group">
             Designed By 

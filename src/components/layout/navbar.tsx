@@ -73,10 +73,10 @@ export function Navbar() {
         )}
       >
         {/* Logo Section */}
-        <Link href="/" className="flex items-center gap-2 group shrink-0">
+        <Link href="/" className="flex items-center gap-2 group shrink-0" onClick={() => setIsMobileMenuOpen(false)}>
           <Camera className="w-5 h-5 sm:w-6 sm:h-6 text-primary group-hover:scale-110 transition-transform duration-500" />
-          <div className="font-accent text-3xl sm:text-4xl tracking-normal normal-case whitespace-nowrap text-primary">
-            Gistesy
+          <div className="font-headline text-xl sm:text-2xl tracking-widest uppercase whitespace-nowrap">
+            <span className="text-primary">Samar</span> <span className="text-white">Framer</span>
           </div>
         </Link>
 
@@ -211,7 +211,9 @@ export function Navbar() {
               <div className="flex justify-between items-center mb-8 sm:mb-12">
                 <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-2">
                   <Camera className="w-7 h-7 text-primary" />
-                  <span className="font-accent text-3xl tracking-normal normal-case text-primary">Gistesy</span>
+                  <div className="font-headline text-2xl tracking-widest uppercase whitespace-nowrap">
+                    <span className="text-primary">Samar</span> <span className="text-white">Framer</span>
+                  </div>
                 </Link>
                 <button onClick={() => setIsMobileMenuOpen(false)} className="text-primary p-2">
                   <X size={32} />
@@ -219,10 +221,10 @@ export function Navbar() {
               </div>
 
               {/* Top CTA in Sidebar */}
-              <div className="mb-8 sm:mb-12">
+              <div className="mb-6 sm:mb-8">
                 <Dialog>
                   <DialogTrigger asChild>
-                    <Button className="w-full h-10 text-[10px] font-sans font-bold uppercase tracking-widest bg-primary text-primary-foreground rounded-full shadow-[0_10px_20px_rgba(193,158,95,0.2)]">
+                    <Button className="w-full h-11 text-[10px] font-sans font-bold uppercase tracking-widest bg-primary text-primary-foreground rounded-full shadow-[0_10px_20px_rgba(193,158,95,0.2)]">
                       Book A Session
                     </Button>
                   </DialogTrigger>
@@ -253,25 +255,21 @@ export function Navbar() {
               </nav>
 
               <div className="mt-auto pt-10 border-t border-primary/10">
-                <div className="grid grid-cols-2 gap-8 mb-10">
+                <div className="grid grid-cols-2 gap-6 items-end">
                   {/* Column 1: Contact Details */}
-                  <div className="space-y-6">
-                    <div className="flex items-center gap-3 text-muted-foreground group">
-                      <div className="w-9 h-9 rounded-full border border-primary/20 flex items-center justify-center text-primary/60 group-hover:bg-primary group-hover:text-white transition-all shrink-0">
-                        <Mail size={16} />
-                      </div>
-                      <span className="text-[10px] tracking-wider whitespace-nowrap overflow-hidden text-ellipsis">hello@gistesy.com</span>
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-2 text-muted-foreground group">
+                      <Mail size={14} className="text-primary/60 group-hover:text-primary transition-colors" />
+                      <span className="text-[10px] tracking-wider whitespace-nowrap overflow-hidden text-ellipsis">hello@samarframer.com</span>
                     </div>
-                    <div className="flex items-center gap-3 text-muted-foreground group">
-                      <div className="w-9 h-9 rounded-full border border-primary/20 flex items-center justify-center text-primary/60 group-hover:bg-primary group-hover:text-white transition-all shrink-0">
-                        <Phone size={16} />
-                      </div>
+                    <div className="flex items-center gap-2 text-muted-foreground group">
+                      <Phone size={14} className="text-primary/60 group-hover:text-primary transition-colors" />
                       <span className="text-[10px] tracking-wider whitespace-nowrap">+91 98765 43210</span>
                     </div>
                   </div>
 
                   {/* Column 2: Social Icons */}
-                  <div className="flex flex-wrap items-start justify-end gap-3">
+                  <div className="flex flex-wrap items-center justify-end gap-3">
                     <SocialLink icon={<Instagram size={18} />} />
                     <SocialLink icon={<Facebook size={18} />} />
                     <SocialLink icon={<TwitterXIcon />} />
@@ -279,8 +277,8 @@ export function Navbar() {
                   </div>
                 </div>
 
-                <div className="text-center pt-6 border-t border-primary/5">
-                    <p className="text-muted-foreground font-signature text-4xl lowercase tracking-normal">Mumbai • Global</p>
+                <div className="text-center pt-8 mt-6 border-t border-primary/5">
+                    <p className="text-muted-foreground font-signature text-3xl lowercase tracking-normal">Mumbai • Global</p>
                 </div>
               </div>
             </motion.div>

@@ -4,7 +4,7 @@ import { Navbar } from '@/components/layout/navbar';
 import { Footer } from '@/components/layout/footer';
 
 export const metadata: Metadata = {
-  title: 'Gistesy | Luxury Wedding & Fashion Photographer',
+  title: 'Samar Framer | Luxury Wedding & Fashion Photographer',
   description: 'Premium photography studio specializing in Weddings, Fashion, and Products. Capturing cinematic moments that last forever.',
 };
 
