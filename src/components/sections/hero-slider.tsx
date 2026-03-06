@@ -34,16 +34,6 @@ const slides = [
 
 export function HeroSlider() {
   const [current, setCurrent] = useState(0);
-  const [isMobileScreen, setIsMobileScreen] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobileScreen(window.innerWidth < 768);
-    };
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -60,10 +50,10 @@ export function HeroSlider() {
       <AnimatePresence mode="wait">
         <motion.div
           key={current}
-          initial={{ opacity: 0, scale: 1.15 }}
+          initial={{ opacity: 0, scale: 1.1 }}
           animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 1.05 }}
-          transition={{ duration: 2, ease: [0.16, 1, 0.3, 1] }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
           className="absolute inset-0"
         >
           <Image
@@ -76,75 +66,66 @@ export function HeroSlider() {
           />
           <div className="absolute inset-0 cinematic-overlay" />
           
-          {/* Content Container - Improved padding for tablet/mobile safe area */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 md:px-10 pt-[15vh] sm:pt-[20vh] md:pt-[25vh]">
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 pt-20">
             <motion.span
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 1 }}
-              className="text-primary font-accent text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4"
+              transition={{ delay: 0.5, duration: 0.8 }}
+              className="text-primary font-accent text-3xl sm:text-5xl md:text-6xl mb-4"
             >
               {slides[current].subtitle}
             </motion.span>
             <motion.h1
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7, duration: 1.2 }}
-              className="font-headline text-3xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl mb-6 sm:mb-10 tracking-wider leading-tight uppercase max-w-[95%] sm:max-w-4xl"
+              transition={{ delay: 0.7, duration: 1 }}
+              className="font-headline text-4xl sm:text-7xl md:text-8xl lg:text-9xl mb-8 tracking-wider leading-tight uppercase"
             >
               {slides[current].title}
             </motion.h1>
             <motion.p
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.9, duration: 1.2 }}
-              className="max-w-xs sm:max-w-xl md:max-w-3xl text-primary/70 text-sm sm:text-lg md:text-2xl mb-10 sm:mb-16 font-body italic"
+              transition={{ delay: 0.9, duration: 1 }}
+              className="max-w-2xl text-primary/70 text-base sm:text-xl mb-12 font-body italic"
             >
               {slides[current].description}
             </motion.p>
             <motion.div
-              initial={{ opacity: 0, y: 60 }}
+              initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.1, duration: 1.2 }}
-              className="flex flex-col sm:flex-row gap-4 sm:gap-10 relative z-20"
+              transition={{ delay: 1.1, duration: 1 }}
+              className="flex flex-col sm:flex-row gap-6 justify-center"
             >
-              <Button asChild size="lg" className="bg-primary hover:bg-accent text-primary-foreground rounded-none px-8 sm:px-16 tracking-[0.2em] sm:tracking-[0.3em] py-5 sm:py-8 md:py-10 text-sm sm:text-lg md:text-xl glow-button font-bold uppercase w-full sm:w-auto">
+              <Button asChild size="lg" className="bg-primary hover:bg-accent text-primary-foreground rounded-none px-12 py-8 text-sm sm:text-lg tracking-widest font-bold uppercase glow-button">
                 <Link href="/portfolio">The Portfolio</Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="border-primary text-primary hover:bg-primary/10 rounded-none px-8 sm:px-16 tracking-[0.2em] sm:tracking-[0.3em] py-5 sm:py-8 md:py-10 text-sm sm:text-lg md:text-xl font-bold uppercase w-full sm:w-auto">
-                <Link href="/booking">Book Session</Link>
+              <Button asChild variant="outline" size="lg" className="border-primary text-primary hover:bg-primary/10 rounded-none px-12 py-8 text-sm sm:text-lg tracking-widest font-bold uppercase">
+                <Link href="/contact">Get in Touch</Link>
               </Button>
             </motion.div>
           </div>
         </motion.div>
       </AnimatePresence>
 
-      {/* Navigation Controls - Scaled down for mobile/tablet */}
-      <div className="absolute bottom-6 sm:bottom-12 md:bottom-16 right-6 sm:right-12 md:right-16 flex gap-3 sm:gap-6 z-30">
-        <button
-          onClick={prevSlide}
-          className="p-2.5 sm:p-4 md:p-5 border border-primary/30 hover:bg-primary/20 text-primary transition-all backdrop-blur-md rounded-full group"
-          aria-label="Previous slide"
-        >
-          <ChevronLeft className="w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8" />
+      {/* Nav Controls */}
+      <div className="absolute bottom-10 right-10 flex gap-4 z-30">
+        <button onClick={prevSlide} className="p-3 border border-primary/30 hover:bg-primary/20 text-primary transition-all backdrop-blur-md rounded-full group">
+          <ChevronLeft className="w-6 h-6 sm:w-8 sm:h-8" />
         </button>
-        <button
-          onClick={nextSlide}
-          className="p-2.5 sm:p-4 md:p-5 border border-primary/30 hover:bg-primary/20 text-primary transition-all backdrop-blur-md rounded-full group"
-          aria-label="Next slide"
-        >
-          <ChevronRight className="w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8" />
+        <button onClick={nextSlide} className="p-3 border border-primary/30 hover:bg-primary/20 text-primary transition-all backdrop-blur-md rounded-full group">
+          <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8" />
         </button>
       </div>
 
-      {/* Progress Bars - Scaled down for mobile */}
-      <div className="absolute bottom-6 sm:bottom-12 md:bottom-16 left-6 sm:left-12 md:left-16 flex gap-3 sm:gap-6 z-30">
+      {/* Progress Bars */}
+      <div className="absolute bottom-10 left-10 flex gap-4 z-30">
         {slides.map((_, i) => (
           <motion.div
             key={i}
             initial={false}
             animate={{
-              width: i === current ? (isMobileScreen ? 40 : 100) : (isMobileScreen ? 15 : 40),
+              width: i === current ? 80 : 20,
               backgroundColor: i === current ? "hsl(var(--primary))" : "rgba(193,158,95,0.2)"
             }}
             className="h-[2px] sm:h-[3px] cursor-pointer"
