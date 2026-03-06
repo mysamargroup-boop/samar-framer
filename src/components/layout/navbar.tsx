@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
-import { Menu, X, Camera, ArrowRight, Calendar, Loader2, Instagram, Facebook, Twitter, Mail, Phone, Youtube } from "lucide-react";
+import { Menu, X, Camera, ArrowRight, Calendar, Loader2, Instagram, Facebook, Mail, Phone, Youtube } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
@@ -223,10 +223,13 @@ export function Navbar() {
               <div className="mb-8 sm:mb-12">
                 <Dialog>
                   <DialogTrigger asChild>
-                    <Button onClick={() => setIsMobileMenuOpen(false)} className="w-full h-10 text-[10px] font-sans font-bold uppercase tracking-widest bg-primary text-primary-foreground rounded-full shadow-[0_10px_20px_rgba(193,158,95,0.2)]">
+                    <Button className="w-full h-10 text-[10px] font-sans font-bold uppercase tracking-widest bg-primary text-primary-foreground rounded-full shadow-[0_10px_20px_rgba(193,158,95,0.2)]">
                       Book A Session
                     </Button>
                   </DialogTrigger>
+                  <DialogContent className="sm:max-w-[800px] bg-card border-primary/20 p-0 overflow-hidden">
+                    {/* Reuse existing dialog content here if needed */}
+                  </DialogContent>
                 </Dialog>
               </div>
 
@@ -251,41 +254,33 @@ export function Navbar() {
               </nav>
 
               <div className="mt-auto pt-10 border-t border-primary/10">
-                {/* Contact Header with Line */}
-                <div className="mb-8">
-                  <h4 className="text-[10px] uppercase tracking-[0.4em] font-bold text-primary mb-3">Contact</h4>
-                  <div className="h-[1px] w-full bg-primary/10" />
-                </div>
-
-                {/* Contact Info: Sidewise with Divider */}
-                <div className="flex items-center justify-between gap-2 mb-10 px-1">
-                   <div className="flex items-center gap-3 text-muted-foreground group flex-1">
+                <div className="grid grid-cols-2 gap-8 mb-10">
+                  {/* Column 1: Contact Details */}
+                  <div className="space-y-6">
+                    <div className="flex items-center gap-3 text-muted-foreground group">
                       <div className="w-9 h-9 rounded-full border border-primary/20 flex items-center justify-center text-primary/60 group-hover:bg-primary group-hover:text-white transition-all shrink-0">
                         <Mail size={16} />
                       </div>
                       <span className="text-[10px] tracking-wider whitespace-nowrap overflow-hidden text-ellipsis">hello@samarframer.com</span>
-                   </div>
-                   
-                   <div className="w-[1px] h-8 bg-primary/20" />
-
-                   <div className="flex items-center gap-3 text-muted-foreground group flex-1 justify-end pr-1">
+                    </div>
+                    <div className="flex items-center gap-3 text-muted-foreground group">
                       <div className="w-9 h-9 rounded-full border border-primary/20 flex items-center justify-center text-primary/60 group-hover:bg-primary group-hover:text-white transition-all shrink-0">
                         <Phone size={16} />
                       </div>
                       <span className="text-[10px] tracking-wider whitespace-nowrap">+91 98765 43210</span>
-                   </div>
+                    </div>
+                  </div>
+
+                  {/* Column 2: Social Icons */}
+                  <div className="flex flex-wrap items-start justify-end gap-3">
+                    <SocialLink icon={<Instagram size={18} />} />
+                    <SocialLink icon={<Facebook size={18} />} />
+                    <SocialLink icon={<TwitterXIcon />} />
+                    <SocialLink icon={<Youtube size={18} />} />
+                  </div>
                 </div>
 
-                {/* Social Icons: Below Contact Info */}
-                <div className="flex items-center justify-center gap-5 mb-10">
-                  <SocialLink icon={<Instagram size={18} />} />
-                  <SocialLink icon={<Facebook size={18} />} />
-                  <SocialLink icon={<TwitterXIcon />} />
-                  <SocialLink icon={<Youtube size={18} />} />
-                </div>
-
-                <div className="text-center">
-                    <p className="text-[10px] uppercase tracking-[0.5em] text-primary/40 font-bold mb-4">Location</p>
+                <div className="text-center pt-6 border-t border-primary/5">
                     <p className="text-muted-foreground font-signature text-4xl lowercase tracking-normal">Mumbai • Global</p>
                 </div>
               </div>
