@@ -50,6 +50,33 @@
   -webkit-text-fill-color: transparent;
 }
 
+.glow-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.glow-button::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(106, 80, 139, 0.4) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.glow-button:hover::after {
+  opacity: 1;
+}
+
+.glow-button:hover {
+  box-shadow: 0 0 20px rgba(106, 80, 139, 0.5);
+  transform: translateY(-2px);
+}
+
 @keyframes float {
   0% { transform: translateY(0px); }
   50% { transform: translateY(-10px); }
