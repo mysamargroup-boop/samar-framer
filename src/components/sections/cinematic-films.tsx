@@ -19,7 +19,7 @@ export function CinematicFilms() {
     return (
         <section className="pt-32 pb-16 bg-background relative overflow-hidden text-center sm:text-left">
             <div className="max-w-7xl mx-auto px-6">
-                <div className="flex flex-col md:flex-row items-end justify-between mb-20 gap-8">
+                <div className="flex flex-col md:flex-row items-center md:items-end justify-between mb-20 gap-8">
                     <div className="space-y-4">
                         <motion.span
                             initial={{ opacity: 0, x: -20 }}

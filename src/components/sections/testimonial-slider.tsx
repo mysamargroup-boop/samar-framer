@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Star } from "lucide-react";
 
 export function TestimonialSlider() {
     const testimonials = [
@@ -46,7 +45,7 @@ export function TestimonialSlider() {
                     <h2 className="text-4xl lg:text-7xl font-headline uppercase">Voices of Love</h2>
                 </motion.div>
 
-                <div className="relative h-[250px] lg:h-[300px]">
+                <div className="relative min-h-[220px] lg:min-h-[280px]">
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={currentIndex}
@@ -56,8 +55,7 @@ export function TestimonialSlider() {
                             transition={{ duration: 0.8 }}
                             className="p-8 lg:p-16 border border-primary/20 bg-background/40 backdrop-blur-xl rounded-sm shadow-2xl relative group h-full flex flex-col justify-center"
                         >
-                            <Star className="w-8 h-8 lg:w-10 lg:h-10 text-primary/30 absolute -top-4 lg:-top-5 left-1/2 -translate-x-1/2" />
-                            <p className="text-xl lg:text-4xl font-body italic leading-relaxed text-foreground/90 mb-8 lg:mb-12">
+                            <p className="text-base sm:text-lg lg:text-3xl font-body italic leading-relaxed text-foreground/90 mb-6 lg:mb-12">
                                 "{testimonials[currentIndex].quote}"
                             </p>
                             <div>
