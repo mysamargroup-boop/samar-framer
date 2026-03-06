@@ -1,4 +1,3 @@
-
 "use client";
 
 import Link from "next/link";
@@ -76,8 +75,8 @@ export function Navbar() {
         {/* Logo Section */}
         <Link href="/" className="flex items-center gap-2 group shrink-0">
           <Camera className="w-5 h-5 sm:w-6 sm:h-6 text-primary group-hover:scale-110 transition-transform duration-500" />
-          <div className="font-headline text-lg sm:text-2xl tracking-[0.1em] uppercase whitespace-nowrap">
-            SAMAR <span className="text-primary">FRAMER</span>
+          <div className="font-accent text-3xl sm:text-4xl tracking-normal normal-case whitespace-nowrap text-primary">
+            Gistesy
           </div>
         </Link>
 
@@ -212,7 +211,7 @@ export function Navbar() {
               <div className="flex justify-between items-center mb-8 sm:mb-12">
                 <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-2">
                   <Camera className="w-7 h-7 text-primary" />
-                  <span className="font-headline text-xl tracking-widest uppercase">SAMAR <span className="text-primary">FRAMER</span></span>
+                  <span className="font-accent text-3xl tracking-normal normal-case text-primary">Gistesy</span>
                 </Link>
                 <button onClick={() => setIsMobileMenuOpen(false)} className="text-primary p-2">
                   <X size={32} />
@@ -261,7 +260,7 @@ export function Navbar() {
                       <div className="w-9 h-9 rounded-full border border-primary/20 flex items-center justify-center text-primary/60 group-hover:bg-primary group-hover:text-white transition-all shrink-0">
                         <Mail size={16} />
                       </div>
-                      <span className="text-[10px] tracking-wider whitespace-nowrap overflow-hidden text-ellipsis">hello@samarframer.com</span>
+                      <span className="text-[10px] tracking-wider whitespace-nowrap overflow-hidden text-ellipsis">hello@gistesy.com</span>
                     </div>
                     <div className="flex items-center gap-3 text-muted-foreground group">
                       <div className="w-9 h-9 rounded-full border border-primary/20 flex items-center justify-center text-primary/60 group-hover:bg-primary group-hover:text-white transition-all shrink-0">

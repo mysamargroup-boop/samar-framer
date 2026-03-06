@@ -1,7 +1,14 @@
-
 import Link from "next/link";
-import { Camera, MapPin, Phone, Mail, Instagram, Facebook, Twitter, Youtube } from "lucide-react";
+import { Camera, MapPin, Phone, Mail, Instagram, Facebook, Youtube } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+
+function TwitterXIcon() {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+    </svg>
+  );
+}
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -14,8 +21,8 @@ export function Footer() {
           <div className="col-span-1 md:col-span-1 space-y-8">
             <Link href="/" className="flex items-center gap-3 group">
               <Camera className="w-8 h-8 text-primary group-hover:scale-110 transition-transform" />
-              <span className="font-headline text-2xl tracking-[0.2em] uppercase">
-                Samar <span className="text-primary">Framer</span>
+              <span className="font-accent text-4xl tracking-normal normal-case text-primary">
+                Gistesy
               </span>
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed font-body italic">
@@ -31,8 +38,8 @@ export function Footer() {
                   <Facebook className="w-6 h-6" />
                </Link>
                <Link href="https://twitter.com" className="text-primary/60 hover:text-primary transition-colors">
-                  <span className="sr-only">Twitter</span>
-                  <Twitter className="w-6 h-6" />
+                  <span className="sr-only">Twitter (X)</span>
+                  <TwitterXIcon />
                </Link>
                <Link href="#" className="text-primary/60 hover:text-primary transition-colors">
                   <span className="sr-only">YouTube</span>
@@ -77,7 +84,7 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-4">
                 <Mail className="w-5 h-5 text-primary shrink-0" />
-                <span>hello@samarframer.com</span>
+                <span>hello@gistesy.com</span>
               </li>
             </ul>
           </div>
@@ -115,7 +122,7 @@ export function Footer() {
         
         <div className="max-w-7xl mx-auto pt-12 border-t border-primary/10 flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="text-[10px] text-primary/40 tracking-[0.4em] uppercase font-bold font-sans">
-            © {currentYear} Samar Framer Photography Studio. All Rights Reserved.
+            © {currentYear} Gistesy Photography Studio. All Rights Reserved.
           </div>
           <div className="text-[10px] text-primary/60 tracking-[0.5em] uppercase flex items-center gap-3 font-bold font-sans group">
             Designed By 
