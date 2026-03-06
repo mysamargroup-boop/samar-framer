@@ -12,7 +12,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Textarea } from "@/components/ui/textarea";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import packagesData from "@/lib/packages.json";
+import packagesData from "@/lib/packages-studio.json";
 
 const standardPackages = packagesData;
 

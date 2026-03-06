@@ -1,5 +1,6 @@
 [
     {
+        "_instruction": "To update package details, change the values below. 'name', 'price', and 'features' are displayed on the UI. Set 'popular' to true for the highlighted middle card.",
         "name": "Basic Shoot",
         "price": "₹9,999",
         "desc": "Perfect for personal branding or small portrait sessions.",
